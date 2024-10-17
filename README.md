@@ -105,69 +105,52 @@ Ahora que entendemos el **Dockerfile**, vamos a construir la imagen de Docker a 
     ```bash
     docker build -t welcome-to-docker .
     ```
-
-   Aquí:
-   - `-t` etiqueta la imagen con el nombre `welcome-to-docker`.
-   - El `.` indica que Docker debe buscar el **Dockerfile** en el directorio actual.
+  >[!NOTE]
+  > - `-t` etiqueta la imagen con el nombre `welcome-to-docker`.
+  > - El `.` indica que Docker debe buscar el **Dockerfile** en el directorio actual.
 
 ### 4. Ejecutar el contenedor
-
 Una vez que la imagen está construida, vamos a ejecutar un contenedor basado en esta imagen.
 
 #### Instrucciones:
-
 1. Asegúrate de tener **Docker Desktop** corriendo en tu máquina.
 2. Ejecuta el siguiente comando para iniciar el contenedor en el puerto **8089**:
-
     ```bash
     docker run -d -p 8089:80 welcome-to-docker
     ```
-
-   Aquí:
-   - `-d` ejecuta el contenedor en segundo plano (modo "detached").
-   - `-p 8089:80` mapea el puerto 8089 de tu máquina local al puerto 80 del contenedor.
+   >[!NOTE]
+   >- `-d` ejecuta el contenedor en segundo plano (modo "detached").
+   >- `-p 8089:80` mapea el puerto 8089 de tu máquina local al puerto 80 del contenedor.
 
 ### 5. Acceder a la aplicación
-
 Ahora que el contenedor está corriendo, puedes acceder a la aplicación web.
 
 #### Instrucciones:
-
 1. Abre tu navegador y navega a:
-
     ```
     http://localhost:8089
     ```
-
 Deberías ver el frontend de la aplicación que se encuentra corriendo dentro del contenedor.
 
 ### 6. Finalizar el contenedor
-
 Una vez hayas terminado de trabajar con la aplicación, es importante detener y eliminar el contenedor.
 
 #### Instrucciones:
-
 1. Para listar todos los contenedores en ejecución, usa el siguiente comando:
-
     ```bash
     docker ps
     ```
-
 2. Para detener el contenedor, copia el **CONTAINER ID** de la lista que te devolvió el comando anterior y ejecuta:
-
     ```bash
     docker stop <CONTAINER_ID>
     ```
-
 3. Para eliminar el contenedor:
 
     ```bash
     docker rm <CONTAINER_ID>
     ```
 
----
-
-#### ¡Felicitaciones!
+#### 🎉 ¡Felicitaciones! 🎉
 
 Has completado el ejercicio básico de Docker. Ahora sabes cómo clonar un proyecto, construir una imagen Docker y ejecutar un contenedor.
 
