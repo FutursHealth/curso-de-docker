@@ -1,4 +1,4 @@
-# 💻 Bienvenido al curso de Docker, From Zero to Hero!
+# 💻 Bienvenido/a al curso de Docker, From Zero to Hero!
 En este documento tendréis a vuestra disposición una serie de herramientas, enlaces de interés, comandos, así como los ejemplos que se irán mostrando durante el curso para que podáis ponerlo en práctica desde vuestros equipos.
 
 ## ✏️ Instala Docker:
