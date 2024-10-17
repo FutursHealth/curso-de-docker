@@ -150,7 +150,7 @@ Una vez hayas terminado de trabajar con la aplicación, es importante detener y 
     docker rm <CONTAINER_ID>
     ```
 
-#### 🎉 ¡Felicitaciones! 🎉
+#### 🎉 ¡Felicidades! 🎉
 
 Has completado el ejercicio básico de Docker. Ahora sabes cómo clonar un proyecto, construir una imagen Docker y ejecutar un contenedor.
 
