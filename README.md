@@ -35,7 +35,10 @@ En este documento tendréis a vuestra disposición una serie de herramientas, en
   |`$ docker container rm -f [ID]`              |Eliminar un contenedor en ejecución de forma forzada |
   |`$ docker rm $(docker ps -aq)`               |Eliminar todos los contendores que no están en ejecución |
   |`$ docker container logs [NAME]`             |Obtener los logs de un contenedor                 |
-  |`$ docker container top [NAME]`              |Listar los procesos en ejecución de un contenedor |
+  |`$ docker container top [NAME]`              |Listar los procesos en ejecución de un contenedor |  
+
+  > [!TIP]
+  > Los contenedores de Docker a menudo se comparan con máquinas virtuales, pero en realidad son solo procesos que se ejecutan en tu sistema operativo anfitrión. En Windows y Mac, Docker se ejecuta en una mini máquina virtual, por lo que para ver los procesos necesitarás conectarte directamente a ella. Sin embargo, en Linux puedes ejecutar "ps aux" y ver los procesos directamente.
 
   ### Trabajando con imágenes
   | Comando                                     | Descripción                                      |
