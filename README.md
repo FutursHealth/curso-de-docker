@@ -118,9 +118,9 @@ Una vez que la imagen está construida, vamos a ejecutar un contenedor basado en
     ```bash
     docker run -d -p 8089:80 welcome-to-docker
     ```
-   >[!NOTE]
-   >- `-d` ejecuta el contenedor en segundo plano (modo "detached").
-   >- `-p 8089:80` mapea el puerto 8089 de tu máquina local al puerto 80 del contenedor.
+  >[!NOTE]
+  >- `-d` ejecuta el contenedor en segundo plano (modo "detached").
+  >- `-p 8089:80` mapea el puerto 8089 de tu máquina local al puerto 80 del contenedor.
 
 ### 5. Acceder a la aplicación
 Ahora que el contenedor está corriendo, puedes acceder a la aplicación web.
