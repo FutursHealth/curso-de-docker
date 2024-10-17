@@ -53,6 +53,127 @@ En este documento tendréis a vuestra disposición una serie de herramientas, en
 > El host proporciona el kernel, una gran diferencia en comparación con las máquinas virtuales.
   
     
-## 📗 Ejercicios prácticos:
+## 📗 Ejercicio 1: Empezando con Docker
+En este ejercicio práctico aprenderás a clonar un repositorio, crear una imagen Docker a partir de un **Dockerfile**, construir y ejecutar un contenedor en Docker. Al finalizar, podrás acceder al frontend de la aplicación desde tu navegador.
 
-### 1️⃣ Ejercicio:
+### 1. Clonar un repositorio Git
+
+Lo primero que haremos es clonar un repositorio que contiene un proyecto básico de Docker. Utilizaremos Git para descargar los archivos a tu máquina local.  
+En caso de **no tener Git instalado** descárgate el archivo **Dockerfile** de aquí mismo y salta al 2º paso.
+
+#### Instrucciones:
+
+1. Abre una terminal (Linux/Mac) o PowerShell (Windows).
+2. Ejecuta el siguiente comando para clonar el repositorio:
+
+    ```bash
+    git clone https://github.com/docker/welcome-to-docker
+    ```
+
+Esto descargará los archivos del proyecto en tu directorio actual.
+
+### 2. Inspeccionar el Dockerfile
+
+Una vez clonado el repositorio, es importante entender cómo está estructurado el archivo **Dockerfile**. Este archivo contiene las instrucciones necesarias para construir una imagen Docker.
+
+#### ¿Qué es el Dockerfile?
+
+El **Dockerfile** es un archivo de texto que define los pasos necesarios para crear una imagen. Incluye la base de la imagen, los archivos necesarios, los comandos a ejecutar, entre otros.
+
+#### Tarea:
+
+- Abre el archivo `Dockerfile` ubicado dentro del directorio clonado.
+- Lee cada línea e identifica:
+  - Qué imagen base está utilizando.
+  - Qué puertos se exponen.
+  - Los comandos `COPY`, `RUN`, etc.
+
+### 3. Construir la imagen Docker
+
+Ahora que entendemos el **Dockerfile**, vamos a construir la imagen de Docker a partir de este archivo.
+
+#### Instrucciones:
+
+1. Navega al directorio donde clonaste el proyecto:
+
+    ```bash
+    cd /ruta/del/proyecto/welcome-to-docker/
+    ```
+
+2. Construye la imagen utilizando el siguiente comando:
+
+    ```bash
+    docker build -t welcome-to-docker .
+    ```
+
+   Aquí:
+   - `-t` etiqueta la imagen con el nombre `welcome-to-docker`.
+   - El `.` indica que Docker debe buscar el **Dockerfile** en el directorio actual.
+
+### 4. Ejecutar el contenedor
+
+Una vez que la imagen está construida, vamos a ejecutar un contenedor basado en esta imagen.
+
+#### Instrucciones:
+
+1. Asegúrate de tener **Docker Desktop** corriendo en tu máquina.
+2. Ejecuta el siguiente comando para iniciar el contenedor en el puerto **8089**:
+
+    ```bash
+    docker run -d -p 8089:80 welcome-to-docker
+    ```
+
+   Aquí:
+   - `-d` ejecuta el contenedor en segundo plano (modo "detached").
+   - `-p 8089:80` mapea el puerto 8089 de tu máquina local al puerto 80 del contenedor.
+
+### 5. Acceder a la aplicación
+
+Ahora que el contenedor está corriendo, puedes acceder a la aplicación web.
+
+#### Instrucciones:
+
+1. Abre tu navegador y navega a:
+
+    ```
+    http://localhost:8089
+    ```
+
+Deberías ver el frontend de la aplicación que se encuentra corriendo dentro del contenedor.
+
+### 6. Finalizar el contenedor
+
+Una vez hayas terminado de trabajar con la aplicación, es importante detener y eliminar el contenedor.
+
+#### Instrucciones:
+
+1. Para listar todos los contenedores en ejecución, usa el siguiente comando:
+
+    ```bash
+    docker ps
+    ```
+
+2. Para detener el contenedor, copia el **CONTAINER ID** de la lista que te devolvió el comando anterior y ejecuta:
+
+    ```bash
+    docker stop <CONTAINER_ID>
+    ```
+
+3. Para eliminar el contenedor:
+
+    ```bash
+    docker rm <CONTAINER_ID>
+    ```
+
+---
+
+#### ¡Felicitaciones!
+
+Has completado el ejercicio básico de Docker. Ahora sabes cómo clonar un proyecto, construir una imagen Docker y ejecutar un contenedor.
+
+#### Recursos adicionales
+
+- [Documentación oficial de Docker](https://docs.docker.com/get-started/)
+- [Dockerfile reference](https://docs.docker.com/engine/reference/builder/)
+
+
