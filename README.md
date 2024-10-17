@@ -59,7 +59,7 @@ En este ejercicio práctico aprenderás a clonar un repositorio, crear una image
 ### 1. Clonar un repositorio Git
 
 Lo primero que haremos es clonar un repositorio que contiene un proyecto básico de Docker. Utilizaremos Git para descargar los archivos a tu máquina local.  
-En caso de **no tener Git instalado** descárgate el archivo **Dockerfile** de [aquí mismo](curso-de-docker/Dockerfile) y salta al 2º paso.
+En caso de **no tener Git instalado** descárgate el archivo **Dockerfile** de [aquí mismo](./Dockerfile) y salta al 2º paso.
 
 #### Instrucciones:
 
