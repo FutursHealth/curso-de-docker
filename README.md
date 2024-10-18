@@ -40,6 +40,7 @@ Otra herramienta que recomendamos para el curso es un editor de código, aunque 
   |`$ docker pull [IMAGE]:[TAG]`                |Descarga la imagen especificada de cualquier HUB de imágenes (públicas o privadas) |
   |`$ docker image rm [IMAGE]`                  |Elimina una imagen (siempre y cuando no esté siendo usada por un contenedor)       |
   |`$ docker rmi [IMAGE]:[TAG]`                 |Elimina una imagen local                                                           |
+  |`$ docker build .`                           |Crea una imagen local                                                              |
 
 > [!TIP]
 > Las imágenes no son un sistema operativo completo. No incluyen el kernel ni los módulos del kernel (controladores).  
@@ -77,39 +78,7 @@ Otra herramienta que recomendamos para el curso es un editor de código, aunque 
   |`$ docker run [IMAGE] -d`                      |Crea y ejecuta un contenedor en segundo plano       |
   |`$ docker run [IMAGE] -p [HOST]:[CONTENEDOR]`  |Mapea un puerto del host a un puerto del contenedor |
   |`$ docker run [IMAGE] -e "VAR=valor"`          |Establece una variable de entorno en el contenedor  |
-  |`$ docker run [IMAGE] -it`                     |Crea y ejecuta un contenedor en modo interactivo    |
-
-  ### Trabajando con contenedores
-  | Comando                                     | Descripción                                      |
-  |--------                                     | -----------                                      |
-  |`$ docker container run -it -p 80:80 nginx`  |Crea y ejecuta un contenedor en modo interactivo  |
-  |`$ docker container run -d -p 80:80 nginx`   |Crea y ejecuta un contenedor en segundo plano     |
-  |`$ docker container run -d -p 80:80 --name nginx-server nginx`  |Nombrar un contenedor          |
-  |`$ docker container ls`  OR `$ docker ps`    |Listar todos los contenedores en ejecución        |
-  |`$ docker container ls -a` OR `$ docker ps -a` |Listar todos los contenedores (en ejecución o parados) |
-  |`$ docker container stop [ID]`               |Parar un contenedor                               |
-  |`$ docker stop $(docker ps -aq)`             |Parar todos los contenedores en ejecución         |
-  |`$ docker container rm [ID]`                 |Eliminar un contenedor (no se pueden eliminar contenedores en ejecución) |
-  |`$ docker container rm -f [ID]`              |Eliminar un contenedor en ejecución de forma forzada |
-  |`$ docker rm $(docker ps -aq)`               |Eliminar todos los contendores que no están en ejecución |
-  |`$ docker container logs [NAME]`             |Obtener los logs de un contenedor                 |
-  |`$ docker container top [NAME]`              |Listar los procesos en ejecución de un contenedor |  
-
-  > [!TIP]
-  > Los contenedores de Docker a menudo se comparan con máquinas virtuales, pero en realidad son solo procesos que se ejecutan en tu sistema operativo anfitrión. En Windows y Mac, Docker se ejecuta en una mini máquina virtual, por lo que para ver los procesos necesitarás conectarte directamente a ella. Sin embargo, en Linux puedes ejecutar "ps aux" y ver los procesos directamente.
-
-  ### Trabajando con imágenes
-  | Comando                                     | Descripción                                      |
-  |--------                                     | -----------                                      |
-  |`$ docker image ls`                          |Lista todas las imágenes subidas a nuestro host   |
-  |`$ docker pull [IMAGE]`                      |Descarga la imagen especificada de cualquier HUB de imágenes (públicas o privadas)|
-  |`$ docker image rm [IMAGE]`                  |Elimina una imagen (siempre y cuando no esté siendo usada por un contenedor)|
-  |`$ docker rmi $(docker images -a -q`         |Elimina todas las imágenes                        |
-
-> [!TIP]
-> Las imágenes no son un sistema operativo completo. No incluyen el kernel ni los módulos del kernel (controladores).  
-> El host proporciona el kernel, una gran diferencia en comparación con las máquinas virtuales.
-  
+  |`$ docker run [IMAGE] -it`                     |Crea y ejecuta un contenedor en modo interactivo    |  
     
 ## 📗 Ejercicio 1: Empezando con Docker
 En este ejercicio práctico aprenderás a clonar un repositorio, crear una imagen Docker a partir de un **Dockerfile**, construir y ejecutar un contenedor en Docker. Al finalizar, podrás acceder al frontend de la aplicación desde tu navegador.
@@ -212,9 +181,13 @@ Una vez hayas terminado de trabajar con la aplicación, es importante detener y 
 
 Has completado el ejercicio 1 de Docker. Ahora sabes cómo clonar un proyecto, construir una imagen Docker y ejecutar un contenedor.
 
-#### Recursos adicionales
+## 📗 Ejercicio 2: CMD vs ENTRYPOINT
+En este ejercicio práctico aprenderás la diferencia que existe entre los comandos CMD y ENTRYPOINT que ejecutan el contenedor. 
+
+### 1. Clonar un repositorio Git
+
+
+## 📁 Recursos adicionales
 
 - [Documentación oficial de Docker](https://docs.docker.com/get-started/)
 - [Dockerfile reference](https://docs.docker.com/engine/reference/builder/)
-
-
