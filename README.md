@@ -13,14 +13,14 @@ En este documento tendréis a vuestra disposición una serie de herramientas, en
 ### - Windows Server (recomendamos Docker CE):  
   [Install Docker Engine for Windows Server](https://learn.microsoft.com/es-es/virtualization/windowscontainers/quick-start/set-up-environment?tabs=dockerce#windows-server-1)  
 
-## ✏️ Instala Git:
-Además de Docker, también recomendamos la instalación de Git para la descarga de los repositorios que iremos ofreciendo durante el curso, aunque este no es un requisito indispensable para el seguimiento del mismo.
+## ✏️ Instala Git:  
+Además de Docker, también recomendamos la instalación de Git para la descarga de los repositorios que iremos ofreciendo durante el curso, aunque este no es un requisito indispensable para el seguimiento del mismo.  
 [Install Git for Windows & WSL2 subsystems](https://learn.microsoft.com/es-es/windows/wsl/tutorials/wsl-git#installing-git)  
 
-## ✏️ Instala VSCode:
-Otra herramienta que recomendamos para el curso es un editor de código, aunque al igual que Git, tampoco es necesario para el seguimiento del mismo. Nosotros recomendamos VSCode de Microsoft o Notepad++
+## ✏️ Instala VSCode:  
+Otra herramienta que recomendamos para el curso es un editor de código, aunque al igual que Git, tampoco es necesario para el seguimiento del mismo. Nosotros recomendamos VSCode de Microsoft o Notepad++  
 [Install VSCode for Windows, Mac & Linux](https://code.visualstudio.com/download)  
-[Install Notepad++ for Windows](https://notepad-plus-plus.org/downloads/)
+[Install Notepad++ for Windows](https://notepad-plus-plus.org/downloads/)  
 
 
 
