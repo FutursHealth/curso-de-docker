@@ -2,18 +2,30 @@
 En este documento tendréis a vuestra disposición una serie de herramientas, enlaces de interés, comandos, así como los ejemplos que se irán mostrando durante el curso para que podáis ponerlo en práctica desde vuestros equipos.
 
 ## ✏️ Instala Docker:
-### - Linux (recomendamos Ubuntu):
+### - Linux (recomendamos Ubuntu):  
   [Install Docker Desktop for Linux](https://docs.docker.com/desktop/install/linux/)  
-  [Install Docker Engine for Linux (console)](https://docs.docker.com/engine/install/)
-### - MacOS:
-  [Install Docker Desktop for MacOS](https://docs.docker.com/desktop/install/mac-install/)
-### - Windows:
-  [Install Docker Desktop for Windows](https://docs.docker.com/desktop/install/windows-install/)
-### - Windows Server (recomendamos Docker CE):
-  [Install Docker Engine for Windows Server](https://learn.microsoft.com/es-es/virtualization/windowscontainers/quick-start/set-up-environment?tabs=dockerce#windows-server-1)
+  [Install Docker Engine for Linux (console)](https://docs.docker.com/engine/install/)  
+### - MacOS:  
+  [Install Docker Desktop for MacOS](https://docs.docker.com/desktop/install/mac-install/)  
+### - Windows:  
+  [Install WSL2](https://learn.microsoft.com/es-es/windows/wsl/setup/environment)  
+  [Install Docker Desktop for Windows](https://docs.docker.com/desktop/install/windows-install/)  
+### - Windows Server (recomendamos Docker CE):  
+  [Install Docker Engine for Windows Server](https://learn.microsoft.com/es-es/virtualization/windowscontainers/quick-start/set-up-environment?tabs=dockerce#windows-server-1)  
+
+## ✏️ Instala Git:
+Además de Docker, también recomendamos la instalación de Git para la descarga de los repositorios que iremos ofreciendo durante el curso, aunque este no es un requisito indispensable para el seguimiento del mismo.
+[Install Git for Windows & WSL2 subsystems](https://learn.microsoft.com/es-es/windows/wsl/tutorials/wsl-git#installing-git)  
+
+## ✏️ Instala VSCode:
+Otra herramienta que recomendamos para el curso es un editor de código, aunque al igual que Git, tampoco es necesario para el seguimiento del mismo. Nosotros recomendamos VSCode de Microsoft o Notepad++
+[Install VSCode for Windows, Mac & Linux](https://code.visualstudio.com/download)  
+[Install Notepad++ for Windows](https://notepad-plus-plus.org/downloads/)
+
+
 
   
-## ✏️ Comandos mas frecuentes:
+## 🔖 Comandos mas frecuentes:
   ### Docker Commands, Help & Tips
   | Comando              | Descripción                                      |
   |--------              | -----------                                      |
@@ -152,7 +164,7 @@ Una vez hayas terminado de trabajar con la aplicación, es importante detener y 
 
 #### 🎉 ¡Felicidades! 🎉
 
-Has completado el ejercicio básico de Docker. Ahora sabes cómo clonar un proyecto, construir una imagen Docker y ejecutar un contenedor.
+Has completado el ejercicio 1 de Docker. Ahora sabes cómo clonar un proyecto, construir una imagen Docker y ejecutar un contenedor.
 
 #### Recursos adicionales
 
