@@ -41,6 +41,14 @@ Otra herramienta que recomendamos para el curso es un editor de código, aunque 
   |`$ docker image rm [IMAGE]`                  |Elimina una imagen (siempre y cuando no esté siendo usada por un contenedor)       |
   |`$ docker rmi [IMAGE]:[TAG]`                 |Elimina una imagen local                                                           |
 
+  ### Trabajando con imágenes
+  | Comando                                    | Descripción                                                                       |
+  |--------------------------------------------|-----------------------------------------------------------------------------------|
+  |<code>$ docker image ls</code>              |Lista todas las imágenes descargasdas en nuestro host                              |
+  |<code>$ docker pull [IMAGE]:[TAG]</code>    |Descarga la imagen especificada de cualquier HUB de imágenes (públicas o privadas) |
+  |<code>$ docker image rm [IMAGE]</code>      |Elimina una imagen (siempre y cuando no esté siendo usada por un contenedor)       |
+  |<code>$ docker rmi [IMAGE]:[TAG]</code>     |Elimina una imagen local                                                           |
+
 > [!TIP]
 > Las imágenes no son un sistema operativo completo. No incluyen el kernel ni los módulos del kernel (controladores).  
 > El host proporciona el kernel, una gran diferencia en comparación con las máquinas virtuales.
