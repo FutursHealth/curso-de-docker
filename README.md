@@ -33,6 +33,52 @@ Otra herramienta que recomendamos para el curso es un editor de código, aunque 
   |`$ docker version`    |Docker version info                               |
   |`$ docker info`       |Mostrar información como nº de contenedores, etc. |
 
+  ### Trabajando con imágenes
+  | Comando                                     | Descripción                                                                       |
+  |--------                                     | -----------                                                                       |
+  |`$ docker image ls`                          |Lista todas las imágenes descargasdas en nuestro host                              |
+  |`$ docker pull [IMAGE]:[TAG]`                |Descarga la imagen especificada de cualquier HUB de imágenes (públicas o privadas) |
+  |`$ docker image rm [IMAGE]`                  |Elimina una imagen (siempre y cuando no esté siendo usada por un contenedor)       |
+  |`$ docker rmi [IMAGE]:[TAG]`                 |Elimina una imagen local                                                           |
+
+> [!TIP]
+> Las imágenes no son un sistema operativo completo. No incluyen el kernel ni los módulos del kernel (controladores).  
+> El host proporciona el kernel, una gran diferencia en comparación con las máquinas virtuales.
+
+  ### Trabajando con contenedores
+  | Comando                                       | Descripción                                                                          |
+  |--------                                       | -----------                                                                          |
+  |`$ docker run [IMAGE]`                         |Crea y ejecuta un contenedor                                                          |
+  |`$ docker container ls`  OR `$ docker ps`      |Lista los contenedores en ejecución                                                   |
+  |`$ docker container ls -a` OR `$ docker ps -a` |Lista todos los contenedores                                                          |
+  |`$ docker stop [CONTAINER]`                    |Detiene un contenedor                                                                 |
+  |`$ docker rm [CONTAINER]`                      |Elimina un contenedor **detenido** (no se puede eliminar contenedores en ejecución)   |
+  |`$ docker rm -f [CONTAINER]`                   |Elimina un contenedor en ejecución de manera forzada                                  |
+  |`$ docker rm $(docker ps -a -f status=exited -f status=created -q)` |Elimina una lista de contenedores con los filtros que apliquemos |
+  |`$ docker logs [CONTAINER]`                    |Muestra los logs de un contenedor                                                     |
+  |`$ docker top [CONTAINER]`                     |Lista los procesos en ejecución de un contenedor                                      | 
+
+  > [!TIP]
+  > Los contenedores de Docker a menudo se comparan con máquinas virtuales, pero en realidad son solo procesos que se ejecutan en tu sistema operativo anfitrión. En Windows y Mac, Docker se ejecuta en una mini máquina virtual, por lo que para ver los procesos necesitarás conectarte directamente a ella. Sin embargo, en Linux puedes ejecutar "ps aux" y ver los procesos directamente.
+
+  ### Trabajando con Docker Build
+  | Comando                                       | Descripción                                                                       |
+  |--------                                       | -----------                                                                       |
+  |`$ docker build -t [IMAGE]:[TAG]`              |Construye una imagen y la etiqueta con un nombre y tag específicos                 |
+  |`$ docker build -f /path/to/Dockerfile`        |Especifica un Dockerfile diferente al predeterminado (./Dockerfile)                |
+  |`$ docker build --build-arg VAR=valor`         |Construye una imagen con variables de entorno especificadas en tiempo de ejecución |
+  |`$ docker build --no-cache`                    |Construye una imagen sin usar la cache de las capas de instrucción del Dockerfile  |
+  |`$ docker build --pull`                        |Intenta extraer una versión más reciente de la imagen base antes de construir      |
+
+  ### Trabajando con Docker Run
+  | Comando                                       | Descripción                                        |
+  |--------                                       | -----------                                        |
+  |`$ docker run [IMAGE] --name [NOMBRE]`         |Asigna un nombre especifico al contenedor           |
+  |`$ docker run [IMAGE] -d`                      |Crea y ejecuta un contenedor en segundo plano       |
+  |`$ docker run [IMAGE] -p [HOST]:[CONTENEDOR]`  |Mapea un puerto del host a un puerto del contenedor |
+  |`$ docker run [IMAGE] -e "VAR=valor"`          |Establece una variable de entorno en el contenedor  |
+  |`$ docker run [IMAGE] -it`                     |Crea y ejecuta un contenedor en modo interactivo    |
+
   ### Trabajando con contenedores
   | Comando                                     | Descripción                                      |
   |--------                                     | -----------                                      |
@@ -43,7 +89,7 @@ Otra herramienta que recomendamos para el curso es un editor de código, aunque 
   |`$ docker container ls -a` OR `$ docker ps -a` |Listar todos los contenedores (en ejecución o parados) |
   |`$ docker container stop [ID]`               |Parar un contenedor                               |
   |`$ docker stop $(docker ps -aq)`             |Parar todos los contenedores en ejecución         |
-  |`$ docker container rm [ID]`                 |Eliminar un contenedor (no se pueden eliminar contenedores en ejecución |
+  |`$ docker container rm [ID]`                 |Eliminar un contenedor (no se pueden eliminar contenedores en ejecución) |
   |`$ docker container rm -f [ID]`              |Eliminar un contenedor en ejecución de forma forzada |
   |`$ docker rm $(docker ps -aq)`               |Eliminar todos los contendores que no están en ejecución |
   |`$ docker container logs [NAME]`             |Obtener los logs de un contenedor                 |
