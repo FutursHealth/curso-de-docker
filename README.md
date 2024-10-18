@@ -35,7 +35,7 @@ Otra herramienta que recomendamos para el curso es un editor de código, aunque 
 
   ### Trabajando con imágenes
   | Comando                                     | Descripción                                                                       |
-  |--------                                     | -----------                                                                       |
+  |-------------------------------------------- | --------------------------------------------------------------------------------- |
   |`$ docker image ls`                          |Lista todas las imágenes descargasdas en nuestro host                              |
   |`$ docker pull [IMAGE]:[TAG]`                |Descarga la imagen especificada de cualquier HUB de imágenes (públicas o privadas) |
   |`$ docker image rm [IMAGE]`                  |Elimina una imagen (siempre y cuando no esté siendo usada por un contenedor)       |
