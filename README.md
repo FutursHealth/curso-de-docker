@@ -177,7 +177,7 @@ Una vez hayas terminado de trabajar con la aplicación, es importante detener y 
     docker rm <CONTAINER_ID>
     ```
 
-#### 🎉 ¡Felicidades! 🎉
+### 🎉 ¡Felicidades! 🎉
 
 Has completado el ejercicio 1 de Docker. Ahora sabes cómo clonar un proyecto, construir una imagen Docker y ejecutar un contenedor.
 
@@ -283,7 +283,7 @@ Ahora que hemos cambiado el orden de los comandos construiremos una nueva imagen
     ```
   >[!NOTE]
   > - `-t` etiqueta la imagen con el nombre `ejercicio2`.
-  > - El `:v1` etiqueta a la imagen con la version 'v2'.
+  > - El `:v2` etiqueta a la imagen con la version 'v2'.
   > - El `.` indica que Docker debe buscar el **Dockerfile** en el directorio actual.
 
 ### 7. Ejecuta un nuevo contenedor
