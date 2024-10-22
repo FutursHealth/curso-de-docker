@@ -86,7 +86,7 @@ En este ejercicio práctico aprenderás a clonar un repositorio, crear una image
 ### 1. Clonar un repositorio Git
 
 Lo primero que haremos es clonar un repositorio que contiene un proyecto básico de Docker. Utilizaremos Git para descargar los archivos a tu máquina local.  
-En caso de **no tener Git instalado** descárgate el archivo **Dockerfile** de [aquí mismo]('.Ejercicio 1/Dockerfile') y salta al 2º paso.
+En caso de **no tener Git instalado** descárgate el archivo **Dockerfile** de [aquí mismo](./Ejercicio_1/Dockerfile) y salta al 2º paso.
 
 #### Instrucciones:
 
@@ -124,7 +124,7 @@ Ahora que entendemos el **Dockerfile**, vamos a construir la imagen de Docker a 
 1. Navega al directorio donde clonaste el proyecto:
 
     ```bash
-    cd /ruta/del/proyecto/Ejercicio 1/
+    cd /ruta/del/proyecto/Ejercicio_1/
     ```
 
 2. Construye la imagen utilizando el siguiente comando:
@@ -222,7 +222,7 @@ Ahora que entendemos el Dockerfile y el script, vamos a construir la imagen de D
 1. Navega al directorio donde clonaste el proyecto:
 
     ```bash
-    cd /ruta/del/proyecto/Ejericio2/
+    cd /ruta/del/proyecto/Ejericio_2/
     ```
 
 2. Construye la imagen utilizando el siguiente comando:
