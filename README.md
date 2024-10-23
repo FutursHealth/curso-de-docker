@@ -365,6 +365,52 @@ docker push cursodockerfuturs/<Nombre_Participante>:tag
 
 Has completado el ejercicio 3 de Docker. Ahora sabes como subir una imagen al registro público de Docker Hub.
 
+## 📗 Ejercicio 4: Ejecutar una imagen de Docker Hub
+
+En este ejercicio práctico aprenderás a descargar y ejecutar una imagen de un repositorio en un servidor externo. SImulando así la entrega de imágenes de aplicaciones con versiones específicas y su uso fuera del servidor local.
+
+>[!NOTE]
+ > Es importante tener una cuenta en Docker Hub para poder usar el servidor externo que nos proporciona la plataforma de Docker para realizar las pruebas y demos.
+
+### 1. Acceder al servidor externo
+
+Lo primero que haremos será acceder a la URL https://labs.play-with-docker.com/. Este laboratorio proporcionado por Docker nos permitirá conectarnos a un servidor externo y realizar el ejercicio.
+
+### 2. Descargar la imagen
+
+Como previamente, en el ejercicio anterior, hemos subido las imágenes a un repositorio público, ya están accesibles por todo el mundo para su descarga.
+Descargaremos la imagen del compañero que queramos en nuestro servidor externo.
+
+#### Instrucciones:
+
+1. Descargar la imagen con el siguiente comando
+```
+docker pull cursodockerfuturs/<Nombre_Participante>
+```
+
+### 3. Ejecutar el contenedor
+
+Ya hemos realizado este paso en ejercicios anteriores. Vamos a ejecutar un contenedor de la imagen que hayamos elegido por el puerto 8000
+
+#### Instrucciones:
+
+1. Ejecutar el contenedor por el puerto 8000
+´´´
+docker run -d -d 8000:3000 <Nombre_Imagen>
+´´´
+
+### 4. Acceder a la aplicación
+
+Exploraremos el puerto 8000 del servidor externo para acceder a la aplicación web.
+
+#### Instrucciones:
+
+Tendremos que permitir las ventanas emergentes (pop ups) para poder abrir una pestaña nueva con el servidor en el puerto 8000.
+
+### 🎉 ¡Felicidades! 🎉
+
+Has completado el ejercicio 4 de Docker. Ahora sabes como descargar una imagen del registro público de Docker Hub y usarla en servidores externos.
+
 ## 📁 Recursos adicionales
 
 - [Documentación oficial de Docker](https://docs.docker.com/get-started/)
