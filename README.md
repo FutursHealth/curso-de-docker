@@ -373,8 +373,8 @@ Descargaremos la imagen del compañero que queramos en nuestro servidor externo.
 
 #### Instrucciones:
 
-1. Descargar la imagen con el siguiente comando
-```
+1. Descargar la imagen con el siguiente comando  
+```bash
 docker pull cursodockerfuturs/<Nombre_Participante>
 ```
 
@@ -384,10 +384,10 @@ Ya hemos realizado este paso en ejercicios anteriores. Vamos a ejecutar un conte
 
 #### Instrucciones:
 
-1. Ejecutar el contenedor por el puerto 8000
-´´´
+1. Ejecutar el contenedor por el puerto 8000  
+```bash
 docker run -d -d 8000:3000 <Nombre_Imagen>
-´´´
+```
 
 ### 4. Acceder a la aplicación
 
