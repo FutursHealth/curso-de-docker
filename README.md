@@ -307,6 +307,64 @@ Una vez que la imagen está construida, vamos a ejecutar un contenedor basado en
 
 Has completado el ejercicio 2 de Docker. Ahora sabes la diferencia entre los comandos CMD y ENTRYPOINT.
 
+## 📗 Ejercicio 3: Subir una imagen a Docker Hub
+
+En este ejercicio práctico aprenderás como subir una imagen a un repositorio. Existen repositorios públicos y privados. En este ejercicio usaremos el repositorio público de Docker Hub
+
+#### ¿Qué es un repositorio de imágenes?
+
+Un repositorio de imágenes de Docker es un lugar en la nube o en un servidor donde se guardan imágenes de Docker. El repositorio permite que otras personas o equipos descarguen estas imágenes y las utilicen en sus propios proyectos, facilitando la distribución y reutilización de aplicaciones en distintos entornos sin tener que configurarlas desde cero.
+El ejemplo más común de repositorio de imágenes es Docker Hub, que es una plataforma pública donde se almacenan muchas imágenes de aplicaciones listas para usar. Hay otros repositorios que también son muy conocidos y usados como **Azure Container Registry** de Microsoft, **Amazon Elastic Container Registry** de AWS o **Google Container Registry** de Google Cloud.
+
+### 1. Comprobar imágenes locales
+
+Lo primero que haremos será comprobar qué imágenes tenemos ya *cocinadas* o *descargadas* localmente.
+
+#### Instrucciones
+
+1. Usa el comando para listar las imágenes de Docker
+  `docker images`
+2. Puedes inspeccionar una imagen en concreto para ver más detalles sobre las capas, uso de memoria, etc.
+  `docker inspect <ID_image>`
+
+### 2. Identificarnos en el registro
+
+Para poder subir imágenes a un repositorio, tenemos que estar identificados previamente en el registro. Para ello vamos a registrarnos en Docker Hub.
+
+#### Instrucciones
+
+1. Registrate con tu usuario y contraseña en Docker Hub
+  ```powershell
+  docker login docker.io
+  ```
+2. Accede usando tu usuario y contraseña.
+
+### 3. Etiquetar la imagen
+
+Para poder subir la imagen al repositorio, primero tenemos que etiquetar la imágen correctamente, siguiendo la convención establecida por el registro al que queremos subir la imagen. En nuestro caso usaremos la nomenclatura establecida para Docker Hub.
+
+#### Instrucciones
+
+1. Etiquetamos la imagen con el siguiente comando:
+```powershell
+docker tag <image_ID> cursodockerfuturs/<Nombre_Participante>
+```
+
+### 4. Subir la imagen
+
+Por último, una vez tenemos la imagen cocinada, estamos identificados en el registro y hemos taggeado la imagen correctamente, ya podemos subir la imagen al repositorio de Docker Hub.
+
+#### Instrucciones
+
+1. Subimos la imagen al repositorio con el siguiente comando:
+```powershell
+docker push cursodockerfuturs/<Nombre_Participante>:tag
+```
+
+### 🎉 ¡Felicidades! 🎉
+
+Has completado el ejercicio 3 de Docker. Ahora sabes como subir una imagen al registro público de Docker Hub.
+
 ## 📁 Recursos adicionales
 
 - [Documentación oficial de Docker](https://docs.docker.com/get-started/)
