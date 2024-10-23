@@ -82,7 +82,7 @@ Otra herramienta que recomendamos para el curso es un editor de código, aunque 
     
 
 # 📚 Ejercicios:  
-A continuación os proponemos una serie de ejercicios que se irán resolviendo durante la clase. En ellos podrás poner en práctica todos los conceptos teóricos vistos durante la clase, así como repasar todos los comandos y pasos que se realizarán para resolver cada uno de ellos.  
+A continuación os proponemos una serie de ejercicios que se irán resolviendo durante la clase. En ellos podrás poner en práctica todos los conceptos teóricos vistos durante la misma, así como repasar todos los comandos y pasos que se realizarán para resolver cada uno de ellos.  
 Para ello será necesario clonarse o bajarse el repositorio que compartimos para este curso en [GitHub](https://github.com/FutursHealth/curso-de-docker)  
 
 ### Clonar un repositorio Git
