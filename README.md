@@ -407,8 +407,8 @@ En este apartado, queremos compartir algunos casos de éxito que hemos puesto en
 
 ### 1. Vaultwarden (gestor de contraseñas)
 ### 2. CLI de Powershell multiversión
-### 3. Servidor ligero de SQL Server
-### 4. 
+### 3. Servicio ligero de SQL Server
+### 4. Servicio de libros Calibre
 
 # 📁 Recursos adicionales
 
