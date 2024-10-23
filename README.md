@@ -88,12 +88,13 @@ Para ello será necesario clonarse o bajarse el repositorio que compartimos para
 ### Clonar un repositorio Git
 
 Para clonar el repositorio de este curso, utilizaremos Git para descargar los archivos a tu máquina local. Si no tienes instalado Git en tu equipo y quieres hacerlo, [lo explicamos al inicio de este documento](https://github.com/FutursHealth/curso-de-docker/edit/main/README.md#%EF%B8%8F-instala-git).
-En caso de **no tener Git instalado** descárgate el repositorio directamente [desde este link](https://github.com/FutursHealth/curso-de-docker/archive/refs/heads/main.zip) y descomprímelo en la ruta que desees, por ejemplo C:/Curso_Docker/.  
+En caso de **no tener Git instalado** también puedes descargarte el repositorio directamente [desde este link](https://github.com/FutursHealth/curso-de-docker/archive/refs/heads/main.zip) y descomprimirlo en la ruta que desees, por ejemplo `C:/Curso_Docker/`.  
 
 #### Instrucciones:
 
-1. Abre una terminal (Linux/Mac) o PowerShell (Windows).
-2. Ejecuta el siguiente comando para clonar el repositorio:
+1. Si has instalado o tienes instalado Git en tu máquina, abre una terminal (Linux/Mac) o PowerShell (Windows).
+2. Ves hasta la ruta donde desees descargar los archivos.
+3. Ejecuta el siguiente comando para clonar el repositorio:
 
     ```bash
     git clone https://github.com/FutursHealth/curso-de-docker
