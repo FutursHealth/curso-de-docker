@@ -402,7 +402,15 @@ Tendremos que permitir las ventanas emergentes (pop ups) para poder abrir una pe
 
 Has completado el ejercicio 4 de Docker. Ahora sabes como descargar una imagen del registro público de Docker Hub y usarla en servidores externos.
 
-## 📁 Recursos adicionales
+#💥 Entrando en trincheras:  
+En este apartado, queremos compartiros algunos casos de éxito que hemos puesto en uso en FutuRS e incluso algunos de ellos también en nuestro día a día en el ámbito personal. Para ello, compartimos con vosotros algunas de las soluciones Docker que hemos tanto desarrollado internamente como adquirido desde otras fuentes que consideramos de utilidad.
+
+## 1. Vaultwarden (gestor de contraseñas)
+## 2. CLI de Powershell multiversión
+## 3. Servidor ligero de SQL Server
+## 4. 
+
+# 📁 Recursos adicionales
 
 - [Documentación oficial de Docker](https://docs.docker.com/get-started/)
 - [Dockerfile reference](https://docs.docker.com/engine/reference/builder/)
