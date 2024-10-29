@@ -406,9 +406,37 @@ Has completado el ejercicio 4 de Docker. Ahora sabes como descargar una imagen d
 En este apartado, queremos compartir algunos casos de éxito que hemos puesto en uso en FutuRS e incluso algunos de ellos también en nuestro día a día en el ámbito personal. Para ello, compartimos con vosotros algunas de las soluciones Docker de utilidad que hemos tanto desarrollado internamente como descargado de otras fuentes.
 
 ### 1. Vaultwarden (gestor de contraseñas)
+Vaultwarden es una implementación ligera y de código abierto del popular gestor de contraseñas Bitwarden. Es ideal para usuarios que desean tener un control total sobre sus datos y no depender de servicios en la nube. Con Docker, es fácil implementar y mantener este tipo de herramientas en un entorno local o en el servidor.
+#### Pasos a seguir:
+1. **Buscar la imagen en Docker Hub (también se puede buscar directamente en la web de Docker Hub)**  
+   ```bash
+   docker search vaultwarden/server
+   ```
+2. **Descargar la imagen de VaultWarden**  
+   ```bash
+   docker pull vaultwarden/server:latest
+   ```
+3. **Ejecutar el contenedor de VaultWarden**  
+   ```bash
+   docker run -d --name vaultwarden -v /vw-data/:/data/ -p 8080:80 vaultwarden/server:latest
+   ```
+   - **-d:** Ejecuta el contenedor en segundo plano (detached).  
+   - **--name vaulwarden:** Asigna un nombre al contenedor para identificarlo fácilmente.
+   - **-v /vw-data/:/data/:** Este comando se utiliza para montar volúmenes de datos persistentes, siendo /vw-data/ una ruta local del sistema host y /data/ la ruta dentro del contenedor.
+   - **-p 8080:80:** Asigna el puerto 80 del contenedor al puerto 8080 de tu sistema local. Esto te permitirá acceder a Vaultwarden en <http://localhost:8080>.  
+4. **Verifica que Vaultwarden está en ejecución**  
+   ```bash
+   docker ps
+   ```
+5. **Acceder a servicio VaultWarden**  
+   Abre tu navegador web y dirígete a <http://localhost:8080>. Deberías ver la interfaz de Vaultwarden lista para ser configurada.
+>[!NOTE]
+ > En el curso de Docker From Zero to Hero (advanced mode) profundizaremos mucho mas en la configuración de flags como es el caso de los volúmenes visto en este ejemplo.
+### 2. Servicio de libros Calibre
+
 ### 2. CLI de Powershell multiversión
 ### 3. Servicio ligero de SQL Server
-### 4. Servicio de libros Calibre
+### 4. Crear entorno de desarrollo con Deno (JavaScript runtime)
 
 # 📁 Recursos adicionales
 
