@@ -91,17 +91,16 @@ Para ello será necesario clonarse o bajarse el repositorio que compartimos para
 Para clonar el repositorio de este curso, utilizaremos Git para descargar los archivos a tu máquina local. Si no tienes instalado Git en tu equipo y quieres hacerlo, [lo explicamos al inicio de este documento](https://github.com/FutursHealth/curso-de-docker/edit/main/README.md#%EF%B8%8F-instala-git).
 En caso de **no tener Git instalado** también puedes descargarte el repositorio directamente [desde este link](https://github.com/FutursHealth/curso-de-docker/archive/refs/heads/main.zip) y descomprimirlo en la ruta que desees, por ejemplo `C:/Curso_Docker/`.  
 
-### Instrucciones:
+**Instrucciones:** 
 
-1. Si has instalado o tienes instalado Git en tu máquina, abre una terminal (Linux/Mac) o PowerShell (Windows).
-2. Ves hasta la ruta donde desees descargar los archivos.
-3. Ejecuta el siguiente comando para clonar el repositorio:
-
+1. Si has instalado o tienes instalado Git en tu máquina, abre una terminal (Linux/Mac) o PowerShell (Windows).  
+2. Ves hasta la ruta donde desees descargar los archivos.  
+3. Ejecuta el siguiente comando para clonar el repositorio:  
     ```bash
     git clone https://github.com/FutursHealth/curso-de-docker
     ```
 
-Esto descargará los archivos del proyecto en tu directorio actual.
+  Esto descargará los archivos del proyecto en tu directorio actual.
 
 ## 📗 Ejercicio 1: Empezando con Docker
 En este ejercicio práctico aprenderás a clonar un repositorio, crear una imagen Docker a partir de un **Dockerfile**, construir y ejecutar un contenedor en Docker. Al finalizar, podrás acceder al frontend de la aplicación desde tu navegador.
@@ -182,112 +181,98 @@ Has completado el ejercicio 1 de Docker. Ahora sabes cómo clonar un proyecto, c
 ## 📗 Ejercicio 2: CMD vs ENTRYPOINT
 En este ejercicio práctico aprenderás la diferencia que existe entre los comandos CMD y ENTRYPOINT que ejecutan el contenedor. 
 
-### 1. Inspeccionar archivos
+**1. Inspeccionar archivos**  
+  Una vez tengamos en el repositorio podemos inspeccionar lo que hay dentro del archivo Dockerfile y del script. Es importante fijarse bien en el orden de las instrucciones que hay en el Dockerfile.  
 
-Una vez tengamos en el repositorio podemos inspeccionar lo que hay dentro del archivo Dockerfile y del script. Es importante fijarse bien en el orden de las instrucciones que hay en el Dockerfile.
+  **Tarea**  
+  - Abre una terminal de Powershell y accede a la ruta donde tengas ubicada la carpeta **Ejercicio 2**
+  - Muestra por pantalla el contenido del archivo `Dockerfile` ubicado dentro de la carpeta Ejercicio 2 con el comando `cat .\Dockerfile`
+  - Lee cada línea e identifica:
+    - Qué imagen base está utilizando.
+    - Los comandos `COPY`, `ENTRYPOINT` y `CMD`
+  - Muestra por pantalla el contenido del archivo `script.sh` ubicado dentro de la carpeta Ejercicio 2 con el comando `cat .\script.sh`
+  - Prueba el script ejecutando el siguiente comando `bash ./script.sh "linea de comandos"` y observa el resultado en la terminal
 
-#### Tarea
+**2. Construir la imagen Docker**  
+  Ahora que entendemos el Dockerfile y el script, vamos a construir la imagen de Docker a partir de este archivo  
 
-- Abre una terminal de Powershell y accede a la ruta donde tengas ubicada la carpeta **Ejercicio 2**
-- Muestra por pantalla el contenido del archivo `Dockerfile` ubicado dentro de la carpeta Ejercicio 2 con el comando `cat .\Dockerfile`
-- Lee cada línea e identifica:
-  - Qué imagen base está utilizando.
-  - Los comandos `COPY`, `ENTRYPOINT` y `CMD`
-- Muestra por pantalla el contenido del archivo `script.sh` ubicado dentro de la carpeta Ejercicio 2 con el comando `cat .\script.sh`
-- Prueba el script ejecutando el siguiente comando `bash ./script.sh "linea de comandos"` y observa el resultado en la terminal
-
-### 2. Construir la imagen Docker
-
-Ahora que entendemos el Dockerfile y el script, vamos a construir la imagen de Docker a partir de este archivo
-
-#### Instrucciones
-1. Navega al directorio donde clonaste el proyecto:
-
+  **Instrucciones**
+  - Navega al directorio donde clonaste el proyecto:  
     ```bash
     cd /ruta/del/proyecto/Ejericio_2/
-    ```
-
-2. Construye la imagen utilizando el siguiente comando:
-
+    ```  
+  - Construye la imagen utilizando el siguiente comando:  
     ```bash
     docker build -t ejercicio2:v1 .
     ```
-  >[!NOTE]
-  > - `-t` etiqueta la imagen con el nombre `ejercicio2`.
-  > - El `:v1` etiqueta a la imagen con la version 'v1'.
-  > - El `.` indica que Docker debe buscar el **Dockerfile** en el directorio actual.
+  > [!NOTE]
+  > - `-t` etiqueta la imagen con el nombre `ejercicio2`.  
+  > - El `:v1` etiqueta a la imagen con la version 'v1'.  
+  > - El `.` indica que Docker debe buscar el **Dockerfile** en el directorio actual.  
 
-### 3. Ejecutar el contenedor
+**3. Ejecutar el contenedor**  
+  Una vez que la imagen está construida, vamos a ejecutar un contenedor basado en esta imagen de diferentes maneras y observaremos las diferencias.  
 
-Una vez que la imagen está construida, vamos a ejecutar un contenedor basado en esta imagen de diferentes maneras y observaremos las diferencias.
-
-#### Instrucciones:
-1. Asegúrate de tener **Docker Desktop** corriendo en tu máquina.
-2. Ejecuta el siguiente comando para iniciar el contenedor:
+  **Instrucciones:**  
+  - Asegúrate de tener **Docker Desktop** corriendo en tu máquina.  
+  - Ejecuta el siguiente comando para iniciar el contenedor:  
     ```bash
     docker run ejercicio2:v1
-    ```
-3. Observa el resultado en la terminal
-4. Ejecuta ahora el siguiente comando para iniciar un nuevo contenedor:
+    ```  
+  - Observa el resultado en la terminal  
+  - Ejecuta ahora el siguiente comando para iniciar un nuevo contenedor:  
     ```bash
     docker run ejercicio2:v1 'linea de comandos'
-    ```
-5. Observa de nuevo la terminal para ver el nuevo resultado.
+    ```  
+  - Observa de nuevo la terminal para ver el nuevo resultado.  
 
-### 4. Cambiar el Dockerfile
+**4. Cambiar el Dockerfile**  
+  Editaremos ahora el Dockerfile del Ejercicio 2 de tal forma que el comando ENTRYPOINT esté después del CMD.
 
-Editaremos ahora el Dockerfile del Ejercicio 2 de tal forma que el comando ENTRYPOINT esté después del CMD.
+  **Tarea**  
+  Ejecuta cualquier editor de texto y abre el archivo Dockerfile de la carpeta Ejercicio2 y cambia el texto para que se quede de la siguiente forma:
+  ```Dockerfile
+  FROM ubuntu
+  COPY script.sh /usr/local/bin/script.sh
+  CMD ["CMD Dockerfile"]
+  ENTRYPOINT ["/usr/local/bin/script.sh"]
+  ```  
+**5. Construir nueva imagen Docker**  
+  Ahora que hemos cambiado el orden de los comandos construiremos una nueva imagen para ver el resultado del ENTRYPOINT  
 
-#### Tarea
-
-Ejecuta cualquier editor de texto y abre el archivo Dockerfile de la carpeta Ejercicio2 y cambia el texto para que se quede de la siguiente forma:
-```Dockerfile
-FROM ubuntu
-COPY script.sh /usr/local/bin/script.sh
-CMD ["CMD Dockerfile"]
-ENTRYPOINT ["/usr/local/bin/script.sh"]
-```
-### 5. Construir nueva imagen Docker
-
-Ahora que hemos cambiado el orden de los comandos construiremos una nueva imagen para ver el resultado del ENTRYPOINT
-
-#### Instrucciones
-1. Navega al directorio donde clonaste el proyecto:
-
+  **Instrucciones**  
+  - Navega al directorio donde clonaste el proyecto:  
     ```bash
     cd /ruta/del/proyecto/Ejericio2/
-    ```
-
-2. Construye la imagen utilizando el siguiente comando:
-
+    ```  
+  - Construye la imagen utilizando el siguiente comando:  
     ```bash
     docker build -t ejercicio2:v2 .
     ```
-  >[!NOTE]
+  > [!NOTE]
   > - `-t` etiqueta la imagen con el nombre `ejercicio2`.
   > - El `:v2` etiqueta a la imagen con la version 'v2'.
   > - El `.` indica que Docker debe buscar el **Dockerfile** en el directorio actual.
 
-### 6. Ejecuta un nuevo contenedor
+**6. Ejecuta un nuevo contenedor**  
+  Una vez que la imagen está construida, vamos a ejecutar un contenedor basado en esta imagen versión 2 de diferentes maneras y observaremos las diferencias.  
 
-Una vez que la imagen está construida, vamos a ejecutar un contenedor basado en esta imagen versión 2 de diferentes maneras y observaremos las diferencias.
-
-#### Instrucciones:
-1. Asegúrate de tener **Docker Desktop** corriendo en tu máquina.
-2. Ejecuta el siguiente comando para iniciar el contenedor:
+  **Instrucciones:**  
+  - Asegúrate de tener **Docker Desktop** corriendo en tu máquina.  
+  - Ejecuta el siguiente comando para iniciar el contenedor:  
     ```bash
     docker run ejercicio2:v2
     ```
-3. Observa el resultado en la terminal
-4. Ejecuta ahora el siguiente comando para iniciar un nuevo contenedor:
+  - Observa el resultado en la terminal  
+  - Ejecuta ahora el siguiente comando para iniciar un nuevo contenedor:  
     ```bash
     docker run ejercicio2:v2 'linea de comandos'
-    ```
-5. Observa de nuevo la terminal para ver el nuevo resultado.
+    ```  
+  - Observa de nuevo la terminal para ver el nuevo resultado.  
 
-### 🎉 ¡Felicidades! 🎉
+**🎉 ¡Felicidades! 🎉**  
 
-Has completado el ejercicio 2 de Docker. Ahora sabes la diferencia entre los comandos CMD y ENTRYPOINT.
+Has completado el ejercicio 2 de Docker. Ahora sabes la diferencia entre los comandos CMD y ENTRYPOINT.  
 
 ## 📗 Ejercicio 3: Subir una imagen a Docker Hub
 
