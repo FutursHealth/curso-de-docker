@@ -430,7 +430,7 @@ Vaultwarden es una implementación ligera y de código abierto del popular gesto
    ```
 5. **Acceder a servicio VaultWarden**  
    Abre tu navegador web y dirígete a <http://localhost:8080>. Deberías ver la interfaz de Vaultwarden lista para ser configurada.
->[!NOTE]
+>[!TIP]
  > En el curso de Docker From Zero to Hero (advanced mode) profundizaremos mucho mas en la configuración de flags como es el caso de los volúmenes visto en este ejemplo.
 ### 2. Servicio de libros Calibre
 
