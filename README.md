@@ -91,7 +91,7 @@ Para ello será necesario clonarse o bajarse el repositorio que compartimos para
 Para clonar el repositorio de este curso, utilizaremos Git para descargar los archivos a tu máquina local. Si no tienes instalado Git en tu equipo y quieres hacerlo, [lo explicamos al inicio de este documento](https://github.com/FutursHealth/curso-de-docker/edit/main/README.md#%EF%B8%8F-instala-git).
 En caso de **no tener Git instalado** también puedes descargarte el repositorio directamente [desde este link](https://github.com/FutursHealth/curso-de-docker/archive/refs/heads/main.zip) y descomprimirlo en la ruta que desees, por ejemplo `C:/Curso_Docker/`.  
 
-#### Instrucciones:
+### Instrucciones:
 
 1. Si has instalado o tienes instalado Git en tu máquina, abre una terminal (Linux/Mac) o PowerShell (Windows).
 2. Ves hasta la ruta donde desees descargar los archivos.
@@ -106,85 +106,76 @@ Esto descargará los archivos del proyecto en tu directorio actual.
 ## 📗 Ejercicio 1: Empezando con Docker
 En este ejercicio práctico aprenderás a clonar un repositorio, crear una imagen Docker a partir de un **Dockerfile**, construir y ejecutar un contenedor en Docker. Al finalizar, podrás acceder al frontend de la aplicación desde tu navegador.
 
-### 1. Inspeccionar el Dockerfile
+**1. Inspeccionar el Dockerfile**  
+  Una vez clonado el repositorio, es importante entender cómo está estructurado el archivo **Dockerfile**. Este archivo contiene las instrucciones necesarias para construir una imagen Docker.
 
-Una vez clonado el repositorio, es importante entender cómo está estructurado el archivo **Dockerfile**. Este archivo contiene las instrucciones necesarias para construir una imagen Docker.
+  > [!IMPORTANT]
+  > El **Dockerfile** es un archivo de texto que define los pasos necesarios para crear una imagen. Incluye la base de la imagen, los archivos necesarios, los comandos a ejecutar, entre otros. 
 
-#### ¿Qué es el Dockerfile?
+  **Tarea:**  
+  - Abre el archivo `Dockerfile` ubicado dentro de la carpeta Ejercicio 1 del directorio clonado.
+  - Lee cada línea e identifica:
+    - Qué imagen base está utilizando.
+    - Qué puertos se exponen.
+    - Los comandos `COPY`, `RUN`, `WORKDIR` y `CMD`
 
-El **Dockerfile** es un archivo de texto que define los pasos necesarios para crear una imagen. Incluye la base de la imagen, los archivos necesarios, los comandos a ejecutar, entre otros.
-
-#### Tarea:
-
-- Abre el archivo `Dockerfile` ubicado dentro de la carpeta Ejercicio 1 del directorio clonado.
-- Lee cada línea e identifica:
-  - Qué imagen base está utilizando.
-  - Qué puertos se exponen.
-  - Los comandos `COPY`, `RUN`, `WORKDIR` y `CMD`
-
-### 2. Construir la imagen Docker
-
-Ahora que entendemos el **Dockerfile**, vamos a construir la imagen de Docker a partir de este archivo.
-
-#### Instrucciones:
-
-1. Navega al directorio donde clonaste el proyecto:
-
+**2. Construir la imagen Docker**  
+  Ahora que entendemos el **Dockerfile**, vamos a construir la imagen de Docker a partir de este archivo.  
+  
+  **Instrucciones:**  
+  - Navega al directorio donde clonaste el proyecto:  
     ```bash
     cd /ruta/del/proyecto/Ejercicio_1/
-    ```
-
-2. Construye la imagen utilizando el siguiente comando:
-
+    ```  
+  - Construye la imagen utilizando el siguiente comando:  
     ```bash
     docker build -t welcome-to-docker .
-    ```
-  >[!NOTE]
+    ```  
+  > [!NOTE]
   > - `-t` etiqueta la imagen con el nombre `welcome-to-docker`.
-  > - El `.` indica que Docker debe buscar el **Dockerfile** en el directorio actual.
+  > - El `.` indica que Docker debe buscar el **Dockerfile** en el directorio actual.  
 
-### 3. Ejecutar el contenedor
-Una vez que la imagen está construida, vamos a ejecutar un contenedor basado en esta imagen.
-
-#### Instrucciones:
-1. Asegúrate de tener **Docker Desktop** corriendo en tu máquina.
-2. Ejecuta el siguiente comando para iniciar el contenedor en el puerto **8089**:
+**3. Ejecutar el contenedor**  
+  Una vez que la imagen está construida, vamos a ejecutar un contenedor basado en esta imagen.  
+  
+  **Instrucciones:**  
+  - Asegúrate de tener **Docker Desktop** corriendo en tu máquina.  
+  - Ejecuta el siguiente comando para iniciar el contenedor en el puerto **8089**:  
     ```bash
     docker run -d -p 8089:3000 welcome-to-docker
-    ```
-  >[!NOTE]
-  >- `-d` ejecuta el contenedor en segundo plano (modo "detached").
-  >- `-p 8089:3000` mapea el puerto 8089 de tu máquina local al puerto 3000 del contenedor.
+    ```  
+  > [!NOTE]
+  > - `-d` ejecuta el contenedor en segundo plano (modo "detached").  
+  > - `-p 8089:3000` mapea el puerto 8089 de tu máquina local al puerto 3000 del contenedor.  
 
-### 4. Acceder a la aplicación
-Ahora que el contenedor está corriendo, puedes acceder a la aplicación web.
+**4. Acceder a la aplicación**  
+  Ahora que el contenedor está corriendo, puedes acceder a la aplicación web.  
 
-#### Instrucciones:
-1. Abre tu navegador y navega a:
-    ```
+  **Instrucciones:**  
+  - Abre tu navegador y navega a:
+    ```bash
     http://localhost:8089
-    ```
-Deberías ver el frontend de la aplicación que se encuentra corriendo dentro del contenedor.
+    ```  
+  Deberías ver el frontend de la aplicación que se encuentra corriendo dentro del contenedor.
 
-### 5. Finalizar el contenedor
-Una vez hayas terminado de trabajar con la aplicación, es importante detener y eliminar el contenedor.
+**5. Finalizar el contenedor**  
+  Una vez hayas terminado de trabajar con la aplicación, es importante detener y eliminar el contenedor.  
 
-#### Instrucciones:
-1. Para listar todos los contenedores en ejecución, usa el siguiente comando:
+  **Instrucciones:**  
+  - Para listar todos los contenedores en ejecución, usa el siguiente comando:  
     ```bash
     docker ps
-    ```
-2. Para detener el contenedor, copia el **CONTAINER ID** de la lista que te devolvió el comando anterior y ejecuta:
+    ```  
+  - Para detener el contenedor, copia el **CONTAINER ID** de la lista que te devolvió el comando anterior y ejecuta:  
     ```bash
     docker stop <CONTAINER_ID>
-    ```
-3. Para eliminar el contenedor:
-
+    ```  
+  - Para eliminar el contenedor:  
     ```bash
     docker rm <CONTAINER_ID>
     ```
 
-### 🎉 ¡Felicidades! 🎉
+**🎉 ¡Felicidades! 🎉**
 
 Has completado el ejercicio 1 de Docker. Ahora sabes cómo clonar un proyecto, construir una imagen Docker y ejecutar un contenedor.
 
