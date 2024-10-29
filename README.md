@@ -435,6 +435,7 @@ Calibre es una herramienta de gestión de libros electrónicos que permite organ
   ```bash
   docker stop <CONTAINER_ID>
   ```
+
   **+INFO:** <https://github.com/linuxserver/docker-calibre>  
 
 >[!TIP]
