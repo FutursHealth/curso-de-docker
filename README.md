@@ -278,105 +278,91 @@ Has completado el ejercicio 2 de Docker. Ahora sabes la diferencia entre los com
   En este ejercicio práctico aprenderás como subir una imagen a un repositorio. Existen repositorios públicos y privados. En este ejercicio usaremos el repositorio público de Docker Hub
 
 
-#### ¿Qué es un repositorio de imágenes?
-
-Un repositorio de imágenes de Docker es un lugar en la nube o en un servidor donde se guardan imágenes de Docker. El repositorio permite que otras personas o equipos descarguen estas imágenes y las utilicen en sus propios proyectos, facilitando la distribución y reutilización de aplicaciones en distintos entornos sin tener que configurarlas desde cero.
+  > [!IMPORTANT]
+  > #### ¿Qué es un repositorio de imágenes?
+  > Un repositorio de imágenes de Docker es un lugar en la nube o en un servidor donde se guardan imágenes de Docker. El repositorio permite que otras personas o equipos descarguen estas imágenes y las utilicen en sus propios proyectos, facilitando la distribución y reutilización de aplicaciones en distintos entornos sin tener que configurarlas desde cero.
 El ejemplo más común de repositorio de imágenes es Docker Hub, que es una plataforma pública donde se almacenan muchas imágenes de aplicaciones listas para usar. Hay otros repositorios que también son muy conocidos y usados como **Azure Container Registry** de Microsoft, **Amazon Elastic Container Registry** de AWS o **Google Container Registry** de Google Cloud.
 
-### 1. Comprobar imágenes locales
+**1. Comprobar imágenes locales**  
+  Lo primero que haremos será comprobar qué imágenes tenemos ya *cocinadas* o *descargadas* localmente.  
 
-Lo primero que haremos será comprobar qué imágenes tenemos ya *cocinadas* o *descargadas* localmente.
+**Instrucciones**  
 
-#### Instrucciones
+  - Usa el comando para listar las imágenes de Docker  
+    `docker images`
+  - Puedes inspeccionar una imagen en concreto para ver más detalles sobre las capas, uso de memoria, etc.  
+    `docker inspect <ID_image>`
 
-1. Usa el comando para listar las imágenes de Docker
-  `docker images`
-2. Puedes inspeccionar una imagen en concreto para ver más detalles sobre las capas, uso de memoria, etc.
-  `docker inspect <ID_image>`
+**2. Identificarnos en el registro**  
+  Para poder subir imágenes a un repositorio, tenemos que estar identificados previamente en el registro. Para ello vamos a registrarnos en Docker Hub.  
 
-### 2. Identificarnos en el registro
+**Instrucciones**  
 
-Para poder subir imágenes a un repositorio, tenemos que estar identificados previamente en el registro. Para ello vamos a registrarnos en Docker Hub.
+  - Registrate con tu usuario y contraseña en Docker Hub  
+     `docker login docker.io`  
+  - Accede usando tu usuario y contraseña.  
 
-#### Instrucciones
+**3. Etiquetar la imagen**  
+  Para poder subir la imagen al repositorio, primero tenemos que etiquetar la imágen correctamente, siguiendo la convención establecida por el registro al que queremos subir la imagen. En nuestro caso usaremos la nomenclatura establecida para Docker Hub.  
 
-1. Registrate con tu usuario y contraseña en Docker Hub
-  ```powershell
-  docker login docker.io
+**Instrucciones**  
+
+  Etiquetamos la imagen con el siguiente comando:  
+    `docker tag <image_ID> cursodockerfuturs/<Nombre_Participante>`  
+
+**4. Subir la imagen** 
+  Por último, una vez tenemos la imagen cocinada, estamos identificados en el registro y hemos taggeado la imagen correctamente, ya podemos subir la imagen al repositorio de Docker Hub.  
+
+**Instrucciones**  
+
+  Subimos la imagen al repositorio con el siguiente comando:  
+    `docker push cursodockerfuturs/<Nombre_Participante>:tag`    
+
+**🎉 ¡Felicidades! 🎉**  
+
+Has completado el ejercicio 3 de Docker. Ahora sabes como subir una imagen al registro público de Docker Hub.  
+
+## 📗 Ejercicio 4: Ejecutar una imagen de Docker Hub  
+
+En este ejercicio práctico aprenderás a descargar y ejecutar una imagen de un repositorio en un servidor externo. SImulando así la entrega de imágenes de aplicaciones con versiones específicas y su uso fuera del servidor local.  
+
+ > [!NOTE]
+ > Es importante tener una cuenta en Docker Hub para poder usar el servidor externo que nos proporciona la plataforma de Docker para realizar las pruebas y demos.  
+
+**1. Acceder al servidor externo**  
+  Lo primero que haremos será acceder a la URL https://labs.play-with-docker.com/. Este laboratorio proporcionado por Docker nos permitirá conectarnos a un servidor externo y realizar el ejercicio.  
+
+**2. Descargar la imagen**  
+  Como previamente, en el ejercicio anterior, hemos subido las imágenes a un repositorio público, ya están accesibles por todo el mundo para su descarga.  
+  Descargaremos la imagen del compañero que queramos en nuestro servidor externo.  
+
+**Instrucciones:**
+
+  Descargar la imagen con el siguiente comando  
+  ```bash
+  docker pull cursodockerfuturs/<Nombre_Participante>`
   ```
-2. Accede usando tu usuario y contraseña.
 
-### 3. Etiquetar la imagen
+**3. Ejecutar el contenedor**  
+  Ya hemos realizado este paso en ejercicios anteriores. Vamos a ejecutar un contenedor de la imagen que hayamos elegido por el puerto 8000  
 
-Para poder subir la imagen al repositorio, primero tenemos que etiquetar la imágen correctamente, siguiendo la convención establecida por el registro al que queremos subir la imagen. En nuestro caso usaremos la nomenclatura establecida para Docker Hub.
+**Instrucciones:**  
 
-#### Instrucciones
+  Ejecutar el contenedor por el puerto 8000  
+  ```bash
+  docker run -d -d 8000:3000 <Nombre_Imagen>
+  ```  
 
-1. Etiquetamos la imagen con el siguiente comando:
-```powershell
-docker tag <image_ID> cursodockerfuturs/<Nombre_Participante>
-```
+**4. Acceder a la aplicación**  
+  Exploraremos el puerto 8000 del servidor externo para acceder a la aplicación web.  
 
-### 4. Subir la imagen
+**Instrucciones:**  
 
-Por último, una vez tenemos la imagen cocinada, estamos identificados en el registro y hemos taggeado la imagen correctamente, ya podemos subir la imagen al repositorio de Docker Hub.
+Tendremos que permitir las ventanas emergentes (pop ups) para poder abrir una pestaña nueva con el servidor en el puerto 8000.  
 
-#### Instrucciones
+**🎉 ¡Felicidades! 🎉**  
 
-1. Subimos la imagen al repositorio con el siguiente comando:
-```powershell
-docker push cursodockerfuturs/<Nombre_Participante>:tag
-```
-
-### 🎉 ¡Felicidades! 🎉
-
-Has completado el ejercicio 3 de Docker. Ahora sabes como subir una imagen al registro público de Docker Hub.
-
-## 📗 Ejercicio 4: Ejecutar una imagen de Docker Hub
-
-En este ejercicio práctico aprenderás a descargar y ejecutar una imagen de un repositorio en un servidor externo. SImulando así la entrega de imágenes de aplicaciones con versiones específicas y su uso fuera del servidor local.
-
->[!NOTE]
- > Es importante tener una cuenta en Docker Hub para poder usar el servidor externo que nos proporciona la plataforma de Docker para realizar las pruebas y demos.
-
-### 1. Acceder al servidor externo
-
-Lo primero que haremos será acceder a la URL https://labs.play-with-docker.com/. Este laboratorio proporcionado por Docker nos permitirá conectarnos a un servidor externo y realizar el ejercicio.
-
-### 2. Descargar la imagen
-
-Como previamente, en el ejercicio anterior, hemos subido las imágenes a un repositorio público, ya están accesibles por todo el mundo para su descarga.
-Descargaremos la imagen del compañero que queramos en nuestro servidor externo.
-
-#### Instrucciones:
-
-1. Descargar la imagen con el siguiente comando  
-```bash
-docker pull cursodockerfuturs/<Nombre_Participante>
-```
-
-### 3. Ejecutar el contenedor
-
-Ya hemos realizado este paso en ejercicios anteriores. Vamos a ejecutar un contenedor de la imagen que hayamos elegido por el puerto 8000
-
-#### Instrucciones:
-
-1. Ejecutar el contenedor por el puerto 8000  
-```bash
-docker run -d -d 8000:3000 <Nombre_Imagen>
-```
-
-### 4. Acceder a la aplicación
-
-Exploraremos el puerto 8000 del servidor externo para acceder a la aplicación web.
-
-#### Instrucciones:
-
-Tendremos que permitir las ventanas emergentes (pop ups) para poder abrir una pestaña nueva con el servidor en el puerto 8000.
-
-### 🎉 ¡Felicidades! 🎉
-
-Has completado el ejercicio 4 de Docker. Ahora sabes como descargar una imagen del registro público de Docker Hub y usarla en servidores externos.
+Has completado el ejercicio 4 de Docker. Ahora sabes como descargar una imagen del registro público de Docker Hub y usarla en servidores externos.  
 
 # 💥 Entrando en trincheras:  
 En este apartado, queremos compartir algunos casos de éxito que hemos puesto en uso en FutuRS e incluso algunos de ellos también en nuestro día a día en el ámbito personal. Para ello, compartimos con vosotros algunas de las soluciones Docker de utilidad que hemos tanto desarrollado internamente como descargado de otras fuentes.
@@ -396,15 +382,16 @@ Vaultwarden es una implementación ligera y de código abierto del popular gesto
    ```bash
    docker run -d --name vaultwarden -v /vw-data/:/data/ -p 8080:80 vaultwarden/server:latest
    ```  
-   - **-d:** Ejecuta el contenedor en segundo plano (detached).  
-   - **--name vaulwarden:** Asigna un nombre al contenedor para identificarlo fácilmente.
-   - **-v /vw-data/:/data/:** Este comando se utiliza para montar volúmenes de datos persistentes, siendo /vw-data/ una ruta local del sistema host y /data/ la ruta dentro del contenedor.
-   - **-p 8080:80:** Asigna el puerto 80 del contenedor al puerto 8080 de tu sistema local. Esto te permitirá acceder a Vaultwarden en <http://localhost:8080>.  
-4. **Verifica que Vaultwarden está en ejecución**  
+  > [!NOTE]
+  > - **-d:** Ejecuta el contenedor en segundo plano (detached).  
+  > - **--name vaulwarden:** Asigna un nombre al contenedor para identificarlo fácilmente.
+  > - **-v /vw-data/:/data/:** Este comando se utiliza para montar volúmenes de datos persistentes, siendo /vw-data/ una ruta local del sistema host y /data/ la ruta dentro del contenedor.
+  > - **-p 8080:80:** Asigna el puerto 80 del contenedor al puerto 8080 de tu sistema local. Esto te permitirá acceder a Vaultwarden en <http://localhost:8080>.  
+5. **Verifica que Vaultwarden está en ejecución**  
    ```bash
    docker ps
    ```  
-5. **Acceder a servicio VaultWarden**  
+6. **Acceder a servicio VaultWarden**  
    Abre tu navegador web y dirígete a <http://localhost:8080>. Deberías ver la interfaz de Vaultwarden lista para ser configurada.
   **+INFO:** <https://hub.docker.com/r/vaultwarden/server>  
 
