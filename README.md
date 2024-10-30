@@ -438,7 +438,7 @@ Calibre es una herramienta de gestión de libros electrónicos que permite organ
 
   **+INFO:** <https://github.com/linuxserver/docker-calibre>  
 
->[!TIP]
+ > [!TIP]
  > En el siguiente curso de "Docker, From Zero to Hero like a Boss" profundizaremos mucho mas en la configuración de flags como es el caso de los volúmenes visto en los ejemplos anteriores.
 
 # 📁 Recursos adicionales
