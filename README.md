@@ -383,20 +383,110 @@ Vaultwarden es una implementación ligera y de código abierto del popular gesto
    docker run -d --name vaultwarden -v /vw-data/:/data/ -p 8080:80 vaultwarden/server:latest
    ```  
   > [!NOTE]
-  > - **-d:** Ejecuta el contenedor en segundo plano (detached).  
-  > - **--name vaulwarden:** Asigna un nombre al contenedor para identificarlo fácilmente.
-  > - **-v /vw-data/:/data/:** Este comando se utiliza para montar volúmenes de datos persistentes, siendo /vw-data/ una ruta local del sistema host y /data/ la ruta dentro del contenedor.
-  > - **-p 8080:80:** Asigna el puerto 80 del contenedor al puerto 8080 de tu sistema local. Esto te permitirá acceder a Vaultwarden en <http://localhost:8080>.  
+  > - `-d` Ejecuta el contenedor en segundo plano (detached).  
+  > - `--name vaulwarden` Asigna un nombre al contenedor para identificarlo fácilmente.
+  > - `-v /vw-data/:/data/` Este comando se utiliza para montar volúmenes de datos persistentes, siendo `/vw-data/` una ruta local del sistema host y `/data/` la ruta dentro del contenedor.
+  > - **(Opcional)** Si no queremos un volumen persistente, podemos sustituir el comando anterior por el siguiente `-e "I_REALLY_WANT_VOLATILE_STORAGE=true"`. Este comando hará que la información se guarde en el contenedor y, cuando este se elimine, sus datos serán borrados también.
+  > - `-p 8080:80` Asigna el puerto 80 del contenedor al puerto 8080 de tu sistema local. Esto te permitirá acceder a Vaultwarden en <http://localhost:8080>.
+
 5. **Verifica que Vaultwarden está en ejecución**  
    ```bash
    docker ps
    ```  
 6. **Acceder a servicio VaultWarden**  
-   Abre tu navegador web y dirígete a <http://localhost:8080>. Deberías ver la interfaz de Vaultwarden lista para ser configurada.
+   Abre tu navegador web y dirígete a <http://localhost:8080>. Deberías ver la interfaz de Vaultwarden lista para ser configurada.  
   **+INFO:** <https://hub.docker.com/r/vaultwarden/server>  
 
 ### 2. CLI de Powershell multiversión
-### 3. Servicio ligero de SQL Server
+### 3. Implementación de una Base de Datos SQL Server con persistencia de datos
+1. **Buscar la imagen en Docker Hub, aunque para este ejemplo vamos a acceder a su [web oficial](https://hub.docker.com/r/microsoft/mssql-server)**
+   ```bash
+   docker search microsoft/mssql-server
+   ```
+2. **(Opcional) Descargar la imagen deseada de SQL Server**
+   Para este ejemplo hemos elegido la 2022, pero como podemos ver en la web, disponemos de múltiples versiones las cuales podríamos ejecutar todas juntas en mismo servidor cambiando tan solo el 'tag'.
+   ```bash
+   docker pull mcr.microsoft.com/mssql/server:2022-latest
+   ```
+3. **Crear un volumen de datos para garantizar la persistencia la BBDD**
+   En la terminal, ejecutar el siguiente comando para crear un volumen en Docker:  
+   ```bash
+   docker volume create sqlserver_data
+   ```
+   Este volumen se usará para almacenar los datos de la base de datos de forma persistente, de manera que si el contenedor se detiene o se elimina, los datos seguirán almacenados en este volumen.
+
+4. **Ejecutar el contenedor de SQL Server**
+   Usa el siguiente comando para ejecutar el contenedor de SQL Server con el volumen creado:  
+   ```bash
+      docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=YourStrong!Passw0rd" \
+       -p 1433:1433 --name sqlserver \
+       -v sqlserver_data:/var/opt/mssql \
+       -d mcr.microsoft.com/mssql/server:<version>
+   ```  
+  > [!NOTE]  
+  > **Explicación del comando:**
+  > - `-e "ACCEPT_EULA=Y"`: Acepta los términos de la licencia.
+  > - `-e "SA_PASSWORD=YourStrong!Passw0rd"`: Establece una contraseña segura para el usuario `sa`.
+  > - `-p 1433:1433`: Expone el puerto 1433 para conectarse a SQL Server desde fuera del contenedor.
+  > - `--name sqlserver`: Nombre del contenedor.
+  > - `-v sqlserver_data:/var/opt/mssql`: Asocia el volumen `sqlserver_data` a la ruta donde se almacenan los datos en el contenedor.
+  > - `-d mcr.microsoft.com/mssql/server:<version>`: Indica la imagen y versión de SQL Server.
+  > **Nota**: Sustituye `<version>` por la versión específica que deseas (por ejemplo, `2019-latest` para la última versión de SQL Server 2019).  
+
+5. **Crear una base de datos y realizar operaciones básicas**
+   A continuación vamos a realizar algunas operaciones básicas sobre la base de datos para comprobar su correcto funcionamiento.  
+   - Una vez conectado, crea una nueva base de datos en el servidor SQL con un comando como:  
+     ```sql
+     CREATE DATABASE MiBaseDeDatos;
+     ```  
+   - Dentro de esta base de datos, crea una tabla con una estructura simple:  
+     ```sql
+     USE MiBaseDeDatos;
+
+     CREATE TABLE Estudiantes (
+         ID INT PRIMARY KEY,
+         Nombre VARCHAR(50),
+         Edad INT
+     );
+     ```  
+   - Realiza las siguientes operaciones básicas:  
+     - **Insertar datos**:  
+       ```sql
+       INSERT INTO Estudiantes (ID, Nombre, Edad) VALUES (1, 'Juan', 20);
+       INSERT INTO Estudiantes (ID, Nombre, Edad) VALUES (2, 'María', 22);
+       ```  
+     - **Consultar datos**:  
+       ```sql
+       SELECT * FROM Estudiantes;
+       ```  
+     - **Actualizar datos**:  
+       ```sql
+       UPDATE Estudiantes SET Edad = 23 WHERE ID = 2;
+       ```  
+     - **Eliminar datos**:  
+       ```sql
+       DELETE FROM Estudiantes WHERE ID = 1;
+       ```
+  6. **Comprobar la Persistencia de los Datos**  
+     - Detén el contenedor de SQL Server usando el siguiente comando:  
+     ```bash
+     docker stop sqlserver
+     ```  
+     - Luego, vuelve a iniciar el contenedor:  
+     ```bash
+     docker start sqlserver
+     ```  
+     - Conéctate nuevamente al contenedor y verifica que los datos en la tabla `Estudiantes` aún están presentes. Esto confirma que el volumen persistente está funcionando correctamente.  
+
+  7. **Limpieza (opcional)**
+     Una vez finalizado el ejercicio, puedes detener y eliminar el contenedor y el volumen de datos si ya no los necesitas:  
+     ```bash
+     docker rm -f sqlserver
+     docker volume rm sqlserver_data
+     ```      
+
+  **+INFO:** <https://learn.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-ver16&tabs=cli&pivots=cs1-powershell#pullandrun2022>  
+
 ### 4. Crear entorno de desarrollo con Deno (JavaScript runtime)
 ### 5. BONUS EXTRA: Servicio de libros Calibre  
 Calibre es una herramienta de gestión de libros electrónicos que permite organizar, convertir y visualizar tus e-books. Aquí, utilizaremos Docker para ejecutar el servidor de Calibre, lo que nos permitirá administrar nuestra colección de libros electrónicos desde cualquier dispositivo de la red.
