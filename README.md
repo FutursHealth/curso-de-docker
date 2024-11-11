@@ -25,6 +25,11 @@ Otra herramienta que recomendamos para el curso es un editor de código, aunque 
 [Install VSCode for Windows, Mac & Linux](https://code.visualstudio.com/download)  
 [Install Notepad++ for Windows](https://notepad-plus-plus.org/downloads/)  
 
+## ✏️ Instalar un gestor de BBDD  
+Otra herramienta que recomendamos para el curso es un gestor de base de datos. Nosotros recomendamos Azure Data Studio o DBeaver, gratuitos ambos dos.  
+[Install Azure Data Studio for Windows, Mac & Linux](https://learn.microsoft.com/en-us/azure-data-studio/download-azure-data-studio?view=sql-server-ver16&tabs=win-install%2Cwin-user-install%2Credhat-install%2Cwindows-uninstall%2Credhat-uninstall#install-azure-data-studio)  
+[Install DBeaver for Windows, Mac & Linux](https://dbeaver.io/download/)  
+
   
 # 🔖 CLI Reference
   ### Docker Commands, Help & Tips
