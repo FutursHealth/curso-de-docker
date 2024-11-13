@@ -249,11 +249,11 @@ En este ejercicio práctico aprenderás la diferencia que existe entre los coman
   Editaremos ahora el Dockerfile del Ejercicio 2 de tal forma que el comando ENTRYPOINT esté después del CMD.
 
   **Tarea**  
-  Ejecuta cualquier editor de texto y abre el archivo Dockerfile de la carpeta Ejercicio2 y cambia el texto para que se quede de la siguiente forma:
+  Muestra en visual studio el contenido del archivo `Dockerfile` ubicado dentro de la carpeta Ejercicio 2 con el comando `code .\Dockerfile` y cambia el texto para que se quede de la siguiente forma:
   ```Dockerfile
   FROM ubuntu
   COPY script.sh /usr/local/bin/script.sh
-  CMD ["CMD Dockerfile"]
+  # CMD ["CMD Dockerfile"]
   ENTRYPOINT ["/usr/local/bin/script.sh"]
   ```  
 **5. Construir nueva imagen Docker**  
