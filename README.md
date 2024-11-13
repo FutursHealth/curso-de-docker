@@ -436,12 +436,9 @@ Vaultwarden es una implementación ligera y de código abierto del popular gesto
 
 4. **Ejecutar el contenedor de SQL Server**
    Usa el siguiente comando para ejecutar el contenedor de SQL Server con el volumen creado:  
-```bash
-docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=YourStrong!Passw0rd" \
--p 1433:1433 --name sqlserver \
--v sqlserver_data:/var/opt/mssql \
--d mcr.microsoft.com/mssql/server:<version>
-```  
+   ```bash
+      docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=YourStrong!Passw0rd" -p 1433:1433 --name sqlserver -v sqlserver_data:/var/opt/mssql -d mcr.microsoft.com/mssql/server:<version>
+   ```  
   > [!NOTE]  
   > **Explicación del comando:**
   > - `-e "ACCEPT_EULA=Y"`: Acepta los términos de la licencia.
