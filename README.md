@@ -504,7 +504,33 @@ Vaultwarden es una implementación ligera y de código abierto del popular gesto
   **+INFO:** <https://learn.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-ver16&tabs=cli&pivots=cs1-powershell#pullandrun2022>  
 
 ### 4. Crear entorno de desarrollo Node.js  
+Crear la aplicación de Node.js directamente desde Docker sin tener Node.js instalado en tu máquina local.
+Para ello descargaremos la carpeta de 'Trincheras' y nos situaremos en el directorio de Nodejs.
 
+1. **Creamos nuestra aplicación js**  
+  ```bash
+  code app.js
+  ```
+2. **(Opcional) Creamos un .dockerignore para excluir arachivos innecesarios**  
+  ```bash
+  code .dockerignore
+  ```
+3. **Construimos la imagen**  
+  ```bash
+  docker build -t docker-node-app .
+  ```
+4. **Ejecutamos el contenedor**  
+  ```bash
+  docker run -p 3000:3000 docker-node-app
+  ```
+5. **Comprobar acceso**  
+  Comprobamos que podemos acceder accediendo a la ruta http://localhost:3000
+6. **Detenemos el contenedor (opcional borrar imagen)**
+  ```bash
+  docker stop docker-node-app
+  ```
+7. **(Opcional) Cambiamos dockerfile**
+Podemos adaptar la imagen de nodejs cambiando en el dockerfile el comando **FROM**.
 
 ### 5. BONUS EXTRA: Servicio de libros Calibre  
 Calibre es una herramienta de gestión de libros electrónicos que permite organizar, convertir y visualizar tus e-books. Aquí, utilizaremos Docker para ejecutar el servidor de Calibre, lo que nos permitirá administrar nuestra colección de libros electrónicos desde cualquier dispositivo de la red.
@@ -526,7 +552,7 @@ Calibre es una herramienta de gestión de libros electrónicos que permite organ
   ```
 5. **Acceder a servicio de Calibre**
    Abre tu navegador web y dirígete a <http://localhost:8081>. Deberías ver la interfaz de Calibre lista para ser configurada.  
-7. **Dado los recursos consumidos por este servicio, paramos el contenedor**  
+6. **Dado los recursos consumidos por este servicio, paramos el contenedor**  
   ```bash
   docker stop <CONTAINER_ID>
   ```
