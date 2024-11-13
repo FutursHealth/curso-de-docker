@@ -200,12 +200,12 @@ En este ejercicio práctico aprenderás la diferencia que existe entre los coman
 
   **Tarea**  
   - Abre una terminal de Powershell y accede a la ruta donde tengas ubicada la carpeta **Ejercicio 2**
-  - Muestra por pantalla el contenido del archivo `Dockerfile` ubicado dentro de la carpeta Ejercicio 2 con el comando `cat .\Dockerfile`
+  - Muestra en visual studio el contenido del archivo `Dockerfile` ubicado dentro de la carpeta Ejercicio 2 con el comando `code .\Dockerfile`
   - Lee cada línea e identifica:
     - Qué imagen base está utilizando.
     - Los comandos `COPY`, `ENTRYPOINT` y `CMD`
-  - Muestra por pantalla el contenido del archivo `script.sh` ubicado dentro de la carpeta Ejercicio 2 con el comando `cat .\script.sh`
-  - Prueba el script ejecutando el siguiente comando `bash ./script.sh "linea de comandos"` y observa el resultado en la terminal
+  - Muestra en visual studio el contenido del archivo `script.sh` ubicado dentro de la carpeta Ejercicio 2 con el comando `code .\script.sh`
+  - Prueba el script ejecutando el siguiente comando `wsl dos2unix ./script.sh` seguido de `wsl sh ./script.sh "linea de comandos"` y observa el resultado en la terminal
 
   > [!NOTE]
   > - Diferencia entre CMD y ENTRYPOINT: entrypoint no lo puedes modificar por medio de línea de comandos, pero los CMD sí. Por lo general, entrypoint es el script y CMD es usado más para mandar argumentos al script. Las dos se manifiestan de una manera muy similar a la hora de usarse.
