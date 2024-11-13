@@ -284,7 +284,7 @@ Has completado el ejercicio 2 de Docker. Ahora sabes la diferencia entre los com
 
 
   > [!IMPORTANT]
-  > #### ¿Qué es un repositorio de imágenes?
+  > **¿Qué es un repositorio de imágenes?**
   > Un repositorio de imágenes de Docker es un lugar en la nube o en un servidor donde se guardan imágenes de Docker. El repositorio permite que otras personas o equipos descarguen estas imágenes y las utilicen en sus propios proyectos, facilitando la distribución y reutilización de aplicaciones en distintos entornos sin tener que configurarlas desde cero.
 El ejemplo más común de repositorio de imágenes es Docker Hub, que es una plataforma pública donde se almacenan muchas imágenes de aplicaciones listas para usar. Hay otros repositorios que también son muy conocidos y usados como **Azure Container Registry** de Microsoft, **Amazon Elastic Container Registry** de AWS o **Google Container Registry** de Google Cloud.
 
@@ -374,7 +374,7 @@ En este apartado, queremos compartir algunos casos de éxito que hemos puesto en
 
 ### 1. Vaultwarden (gestor de contraseñas)
 Vaultwarden es una implementación ligera y de código abierto del popular gestor de contraseñas Bitwarden. Es ideal para usuarios que desean tener un control total sobre sus datos y no depender de servicios en la nube. Con Docker, es fácil implementar y mantener este tipo de herramientas en un entorno local o en el servidor.
-#### Pasos a seguir:
+**Pasos a seguir:**
 1. **Buscar la imagen en Docker Hub (también se puede buscar directamente en la web de Docker Hub)**  
    ```bash
    docker search vaultwarden/server
