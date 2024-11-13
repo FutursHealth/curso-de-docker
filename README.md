@@ -318,8 +318,8 @@ El ejemplo más común de repositorio de imágenes es Docker Hub, que es una pla
 **Instrucciones**  
 
   - Registrate con tu usuario y contraseña en Docker Hub  
-     `docker login docker.io`  
-  - Accede usando tu usuario y contraseña.  
+     `docker login docker.io -u cursodockerfuturs`  
+  - Accede usando la contraseña proporcionada.  
 
 **3. Etiquetar la imagen**  
   Para poder subir la imagen al repositorio, primero tenemos que etiquetar la imágen correctamente, siguiendo la convención establecida por el registro al que queremos subir la imagen. En nuestro caso usaremos la nomenclatura establecida para Docker Hub.  
