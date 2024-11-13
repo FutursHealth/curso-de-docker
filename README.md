@@ -208,9 +208,9 @@ En este ejercicio práctico aprenderás la diferencia que existe entre los coman
   - Prueba el script ejecutando el siguiente comando `bash ./script.sh "linea de comandos"` y observa el resultado en la terminal
 
   > [!NOTE]
-  > Diferencia entre CMD y ENTRYPOINT: entrypoint no lo puedes modificar por medio de línea de comandos, pero los CMD sí. Por lo general, entrypoint es el script y CMD es usado más para mandar argumentos al script. Las dos se manifiestan de una manera muy similar a la hora de usarse.
-  > ENTRYPOINT: tiene la ubicación del mismo script.
-  > CMD: simplemente tiene una string, no es directriz ni nada, es simplemente una cadena.  
+  > - Diferencia entre CMD y ENTRYPOINT: entrypoint no lo puedes modificar por medio de línea de comandos, pero los CMD sí. Por lo general, entrypoint es el script y CMD es usado más para mandar argumentos al script. Las dos se manifiestan de una manera muy similar a la hora de usarse.
+  > - ENTRYPOINT: tiene la ubicación del mismo script.
+  > - CMD: simplemente tiene una string, no es directriz ni nada, es simplemente una cadena.  
 
 **2. Construir la imagen Docker**  
   Ahora que entendemos el Dockerfile y el script, vamos a construir la imagen de Docker a partir de este archivo  
