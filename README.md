@@ -492,7 +492,9 @@ Vaultwarden es una implementación ligera y de código abierto del popular gesto
 
   **+INFO:** <https://learn.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-ver16&tabs=cli&pivots=cs1-powershell#pullandrun2022>  
 
-### 4. Crear entorno de desarrollo Node.js
+### 4. Crear entorno de desarrollo Node.js  
+
+
 ### 5. BONUS EXTRA: Servicio de libros Calibre  
 Calibre es una herramienta de gestión de libros electrónicos que permite organizar, convertir y visualizar tus e-books. Aquí, utilizaremos Docker para ejecutar el servidor de Calibre, lo que nos permitirá administrar nuestra colección de libros electrónicos desde cualquier dispositivo de la red.
 1. **Buscar la imagen en Docker Hub (también se puede buscar directamente en la web de Docker Hub)**  
