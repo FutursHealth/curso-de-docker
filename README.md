@@ -122,6 +122,15 @@ En este ejercicio práctico aprenderás a clonar un repositorio, crear una image
     - Qué imagen base está utilizando.
     - Qué puertos se exponen.
     - Los comandos `COPY`, `RUN`, `WORKDIR` y `CMD`
+  
+  > [!NOTE]
+  > - FROM: nos permite usar una imagen base para crear el dockerfile, podemos obtenerla del dockerhub, o de una previamente creada. Aquí se usa node, la versión 18 de alpine (alpine es de las más ligeras, basada en Debian).
+  > - WORKDIR: directriz que nos permite establecer el directorio en el que nos queremos situar para ejecutar las siguientes instrucciones. (También crea el directorio si no existe en el contenedor).
+  > - COPY: permite copiar cualquier archivo en mi directorio local dentro del contenedor. Si se usa un wildcard se copiará cualquier archivo que coincida con ese formato regex.
+  > - RUN: es la instrucción para ejecutar comandos. Aquí estamos instalando los paquetes que quiero dentro del contenedor.
+  > - EXPOSE: esta instrucción expone el puerto interno de la aplicación hacia el exterior.
+  > - CMD: (comand) nos permite ejecutar la aplicación. Lanza el comando ‘serve’ con los diferentes argumentos ‘s’ y ‘build’.
+  
 
 **2. Construir la imagen Docker**  
   Ahora que entendemos el **Dockerfile**, vamos a construir la imagen de Docker a partir de este archivo.  
@@ -197,6 +206,11 @@ En este ejercicio práctico aprenderás la diferencia que existe entre los coman
     - Los comandos `COPY`, `ENTRYPOINT` y `CMD`
   - Muestra por pantalla el contenido del archivo `script.sh` ubicado dentro de la carpeta Ejercicio 2 con el comando `cat .\script.sh`
   - Prueba el script ejecutando el siguiente comando `bash ./script.sh "linea de comandos"` y observa el resultado en la terminal
+
+  > [!NOTE]
+  > Diferencia entre CMD y ENTRYPOINT: entrypoint no lo puedes modificar por medio de línea de comandos, pero los CMD sí. Por lo general, entrypoint es el script y CMD es usado más para mandar argumentos al script. Las dos se manifiestan de una manera muy similar a la hora de usarse.
+  > ENTRYPOINT: tiene la ubicación del mismo script.
+  > CMD: simplemente tiene una string, no es directriz ni nada, es simplemente una cadena.  
 
 **2. Construir la imagen Docker**  
   Ahora que entendemos el Dockerfile y el script, vamos a construir la imagen de Docker a partir de este archivo  
