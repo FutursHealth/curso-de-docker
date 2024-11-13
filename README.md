@@ -359,7 +359,7 @@ En este ejercicio práctico aprenderás a descargar y ejecutar una imagen de un 
 
   Descargar la imagen con el siguiente comando  
   ```bash
-  docker pull cursodockerfuturs/<Nombre_Participante>`
+  docker pull cursodockerfuturs/<Nombre_Participante>
   ```
 
 **3. Ejecutar el contenedor**  
