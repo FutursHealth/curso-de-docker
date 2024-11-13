@@ -369,7 +369,7 @@ En este ejercicio práctico aprenderás a descargar y ejecutar una imagen de un 
 
   Ejecutar el contenedor por el puerto 8000  
   ```bash
-  docker run -d -d 8000:3000 <Nombre_Imagen>
+  docker run -d -p 8000:3000 <Nombre_Imagen>
   ```  
 
 **4. Acceder a la aplicación**  
