@@ -532,7 +532,35 @@ Para ello descargaremos la carpeta de 'Trincheras' y nos situaremos en el direct
 7. **(Opcional) Cambiamos dockerfile**
 Podemos adaptar la imagen de nodejs cambiando en el dockerfile el comando **FROM**.
 
-### 5. BONUS EXTRA: Servicio de libros Calibre  
+### 5. Portainer: UI para administrar Docker en entornos sin Docker Desktop  
+Portainer es una herramienta de administración de contenedores que proporciona una interfaz gráfica de usuario (GUI) simple e intuitiva para gestionar entornos Docker. Con Portainer, puedes gestionar imágenes, contenedores, redes, volúmenes y más, sin necesidad de ejecutar comandos de terminal. Es ideal para principiantes que desean administrar Docker de manera visual y también para administradores que buscan simplificar tareas complejas.
+
+1. **Buscar la imagen en Docker Hub (también se puede buscar directamente en la web de Docker Hub)**
+   ```bash
+   docker search portainer/portainer-ce
+   ```
+2. **Crear un volumen para Portainer**
+   ```bash
+   docker volume create portainer_data
+   ```
+3. **Descargar e iniciar el contenedor de Portainer**
+   ```bash
+   docker run -d -p 8000:8000 -p 9443:9443 -p 9000:9000 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
+   ```
+  > [!NOTE]  
+  > **Explicación del comando:**
+  > - `-p 8000:8000`: Exposición del puerto de control interno (para el agente, opcional).
+  > - `-p 9443:9443`: Espone el puerto 9443 que se usará para conexión segura HTTPS.
+  > - `-p 9000:9000`: Expone el puerto 9000 para conectarse de manera no segura (recomendado solo para entornos laboratorio).
+  > - `--name portainer`: Nombre del contenedor.
+  > - `--restart=always`: Configuración para que el contenedor se reinicie automáticamente en caso de apagado o reinicio de la máquina HOST.
+  > - `-v /var/run/docker.sock:/var/run/docker.sock`: Permite a Portainer interactuar directamente con el demonio de Docker.
+  > - `-v portainer_data:/data`: Asocia el volumen creado con los datos persistentes de Portainer.
+4.  **Comprobar acceso**  
+  Comprobamos que podemos acceder accediendo a la ruta http://localhost:9000
+
+
+### 6. BONUS EXTRA: Servicio de libros Calibre  
 Calibre es una herramienta de gestión de libros electrónicos que permite organizar, convertir y visualizar tus e-books. Aquí, utilizaremos Docker para ejecutar el servidor de Calibre, lo que nos permitirá administrar nuestra colección de libros electrónicos desde cualquier dispositivo de la red.
 1. **Buscar la imagen en Docker Hub (también se puede buscar directamente en la web de Docker Hub)**  
   ```bash
