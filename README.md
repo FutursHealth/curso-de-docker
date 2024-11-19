@@ -414,7 +414,8 @@ Vaultwarden es una implementación ligera y de código abierto del popular gesto
    ```  
 6. **Acceder a servicio VaultWarden**  
    Abre tu navegador web y dirígete a <http://localhost:8080>. Deberías ver la interfaz de Vaultwarden lista para ser configurada.  
-  **+INFO:** <https://hub.docker.com/r/vaultwarden/server>  
+   
+**💡+info:** <https://hub.docker.com/r/vaultwarden/server>  
 
 ### 2. CLI de Powershell multiversión
 ### 3. Implementación de una Base de Datos SQL Server con persistencia de datos
@@ -501,7 +502,7 @@ Vaultwarden es una implementación ligera y de código abierto del popular gesto
      docker volume rm sqlserver_data
      ```      
 
-  **+INFO:** <https://learn.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-ver16&tabs=cli&pivots=cs1-powershell#pullandrun2022>  
+  **💡+info:** <https://learn.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-ver16&tabs=cli&pivots=cs1-powershell#pullandrun2022>  
 
 ### 4. Crear entorno de desarrollo Node.js  
 Crear la aplicación de Node.js directamente desde Docker sin tener Node.js instalado en tu máquina local.
@@ -559,6 +560,7 @@ Portainer es una herramienta de administración de contenedores que proporciona 
 4.  **Comprobar acceso**  
   Comprobamos que podemos acceder accediendo a la ruta http://localhost:9000
 
+**💡+info:** <https://docs.portainer.io/start/install-ce/server/docker>  
 
 ### 6. BONUS EXTRA: Servicio de libros Calibre  
 Calibre es una herramienta de gestión de libros electrónicos que permite organizar, convertir y visualizar tus e-books. Aquí, utilizaremos Docker para ejecutar el servidor de Calibre, lo que nos permitirá administrar nuestra colección de libros electrónicos desde cualquier dispositivo de la red.
@@ -585,7 +587,7 @@ Calibre es una herramienta de gestión de libros electrónicos que permite organ
   docker stop <CONTAINER_ID>
   ```
 
-  **+INFO:** <https://github.com/linuxserver/docker-calibre>  
+  **💡+info:** <https://github.com/linuxserver/docker-calibre>  
 
  > [!TIP]
  > En el siguiente curso de "Docker, From Zero to Hero like a Boss" profundizaremos mucho mas en la configuración de flags como es el caso de los volúmenes visto en los ejemplos anteriores.
