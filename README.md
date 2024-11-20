@@ -418,6 +418,35 @@ Vaultwarden es una implementación ligera y de código abierto del popular gesto
 **💡+info:** <https://hub.docker.com/r/vaultwarden/server>  
 
 ### 2. CLI de Powershell multiversión
+En este ejercicio, aprenderás a crear un contenedor Docker que tenga PowerShell instalado. Esto te permitirá ejecutar comandos de PowerShell en un entorno que no lo tiene instalado localmente. De esta manera, podrás usar Docker para crear un entorno aislado y controlado que contenga PowerShell listo para ser utilizado.
+1. **Vamos a descargar la imagen oficial de powershell disponible en Docker Hub**
+   ```bash
+   docker pull mcr.microsoft.com/powershell
+   ```
+   Este comando descargará la última versión de la imagen de PowerShell.  
+
+2. **Crear y Ejecutar un Contenedor con PowerShell**
+   ```bash
+   docker run -it --name mi-powershell mcr.microsoft.com/powershell
+   ```
+  > [!NOTE]
+  > - `-it`: Inicia el contenedor en modo interactivo con una terminal adjunta para que puedas introducir comandos directamente.
+  > - `--name mi-powershell`: Asigna un nombre al contenedor para que sea más fácil identificarlo.
+  > - `mcr.microsoft.com/powershell`: Especifica la imagen que deseas usar.  
+
+4. **Ejecutar comandos de PowerShell en el contenedor**
+   ```powershell
+   PS /> Get-Process
+   ```
+   ```powershell
+   PS /> Write-Output "Hola desde PowerShell en Docker"
+   ```
+5. **Salir del contenedor**
+   ```powershell
+   PS /> exit
+   ```
+   Esto saldrá del contenedor y lo parará. Podemos comprobar que el contenedor se ha parado ejecutando `docker ps -a`
+   
 ### 3. Creación un servicio web con Docker y Nginx
 En este ejemplo, verás como crear un contenedor Docker que ejecute un servicio web Nginx y realizar pruebas básicas para verificar su funcionamiento. El objetivo es familiarizarte con comandos esenciales de Docker y entender cómo se puede levantar un servidor web en cuestión de segundos.  
 1. **Buscar la imagen en Docker Hub**
