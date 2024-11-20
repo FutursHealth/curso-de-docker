@@ -417,7 +417,7 @@ Vaultwarden es una implementación ligera y de código abierto del popular gesto
    
 **💡+info:** <https://hub.docker.com/r/vaultwarden/server>  
 
-### 2. CLI de Powershell multiversión
+### 2. CLI de Powershell aislado
 En este ejercicio, aprenderás a crear un contenedor Docker que tenga PowerShell instalado. Esto te permitirá ejecutar comandos de PowerShell en un entorno que no lo tiene instalado localmente. De esta manera, podrás usar Docker para crear un entorno aislado y controlado que contenga PowerShell listo para ser utilizado.
 1. **Vamos a descargar la imagen oficial de powershell disponible en Docker Hub**
    ```bash
