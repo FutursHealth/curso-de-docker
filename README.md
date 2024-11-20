@@ -447,13 +447,13 @@ En este ejemplo, verás como crear un contenedor Docker que ejecute un servicio 
    http://localhost:8080
    ```  
    Deberías ver la página de bienvenida de Nginx, lo cual indica que el servidor web está funcionando correctamente dentro del contenedor Docker.  
-6. **Realizar pruebas básicas**
-   - Hacer pruebas con los comandos `stop | start | rm`
-   - Parar contenedor si no está parado `docker stop <ID_Contenedor>`
-7. **Levantar servicio Nginx, montando un HTML personalizado para que sea servido por Nginx**
-   - Acceder desde la terminal a la carpeta situada en `Repositorio\Trincheras\Nginx`
-   - Dentro encontraremos un archivo HTML `index.html` el cual podríamos personalizar a nuestro gusto.
-   - Ejecutaremos el siguiente comando:
+6. **Realizar pruebas básicas**  
+   - Hacer pruebas con los comandos `stop | start | rm`  
+   - Parar contenedor si no está parado `docker stop <ID_Contenedor>`  
+7. **Levantar servicio Nginx, montando un HTML personalizado para que sea servido por Nginx**  
+   - Acceder desde la terminal a la carpeta situada en `Repositorio\Trincheras\Nginx`  
+   - Dentro encontraremos un archivo HTML `index.html` el cual podríamos personalizar a nuestro gusto.  
+   - Ejecutaremos el siguiente comando:  
    ```bash
    docker run --name mi-nginx-personalizado -d -p 8080:80 -v ${pwd})/index.html:/usr/share/nginx/html/index.html nginx
    ```  
@@ -463,8 +463,8 @@ En este ejemplo, verás como crear un contenedor Docker que ejecute un servicio 
 8. **Acceder al servicio web**  
    ```
    http://localhost:8080/index.html  
-   ```
-   
+   ```  
+     
 ### 4. Implementación de una Base de Datos SQL Server con persistencia de datos
 1. **Buscar la imagen en Docker Hub, aunque para este ejemplo vamos a acceder a su [web oficial](https://hub.docker.com/r/microsoft/mssql-server)**
    ```bash
@@ -549,7 +549,7 @@ En este ejemplo, verás como crear un contenedor Docker que ejecute un servicio 
      docker volume rm sqlserver_data
      ```      
 
-  **💡+info:** <[Inserción y ejecución de la imagen de contenedor de SQL Server para Linux](https://learn.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-ver16&tabs=cli&pivots=cs1-powershell#pullandrun2022)>  
+  **💡+info:** [Inserción y ejecución de la imagen de contenedor de SQL Server para Linux](https://learn.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-ver16&tabs=cli&pivots=cs1-powershell#pullandrun2022)  
 
 ### 5. Crear entorno de desarrollo Node.js  
 Crear la aplicación de Node.js directamente desde Docker sin tener Node.js instalado en tu máquina local.
