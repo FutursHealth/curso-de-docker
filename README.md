@@ -418,7 +418,53 @@ Vaultwarden es una implementación ligera y de código abierto del popular gesto
 **💡+info:** <https://hub.docker.com/r/vaultwarden/server>  
 
 ### 2. CLI de Powershell multiversión
-### 3. Implementación de una Base de Datos SQL Server con persistencia de datos
+### 3. Creación un servicio web con Docker y Nginx
+En este ejemplo, verás como crear un contenedor Docker que ejecute un servicio web Nginx y realizar pruebas básicas para verificar su funcionamiento. El objetivo es familiarizarte con comandos esenciales de Docker y entender cómo se puede levantar un servidor web en cuestión de segundos.  
+1. **Buscar la imagen en Docker Hub**
+   ```bash
+   docker search nginx
+   ```  
+2. **Descargar la imagen de Ningx**
+   ```bash
+   docker pull nginx
+   ```
+   Este comando descargará la última versión de la imagen de Nginx.    
+3. **Crear un contenedor con Nginx**
+   ```bash
+   docker run --name mi-nginx -d -p 8080:80 nginx
+   ```  
+  > [!NOTE]
+  > - `--name mi-nginx`: Asigna un nombre al contenedor para que sea más fácil identificarlo.  
+  > - `-d`: Ejecuta el contenedor en segundo plano (modo "detached").  
+  > - `-p 8080:80`: Redirige el puerto 8080 de tu máquina al puerto 80 del contenedor, permitiéndote acceder al servidor web desde el navegador.  
+  > - `nginx`: Especifica la imagen que deseas usar.  
+4. **Verificar que el contenedor se está ejecutando**
+  ```bash
+  docker ps
+  ```  
+5. **Acceder al servicio web**  
+  ```
+  http://localhost:8080
+  ```  
+  Deberías ver la página de bienvenida de Nginx, lo cual indica que el servidor web está funcionando correctamente dentro del contenedor Docker.  
+6. **Realizar pruebas básicas**
+  - Hacer pruebas con los comandos `stop | start | rm`
+  - Parar contenedor si no está parado `docker stop <ID_Contenedor>`
+7. **Levantar servicio Nginx, montando un HTML personalizado para que sea servido por Nginx**
+  - Acceder desde la terminal a la carpeta situada en `Repositorio\Trincheras\Nginx`
+  - Dentro encontraremos un archivo HTML `index.html` el cual podríamos personalizar a nuestro gusto.
+  - Ejecutaremos el siguiente comando:
+  ```bash
+  docker run --name mi-nginx-personalizado -d -p 8080:80 -v ${pwd})/index.html:/usr/share/nginx/html/index.html nginx
+  ```  
+  > [!NOTE]
+  > - `-v ${pwd}/index.html:/usr/share/nginx/html/index.html`: Monta el archivo `index.html` que has creado en la ubicación donde Nginx espera encontrar su página principal.  
+
+8. **Acceder al servicio web**  
+  ```
+  http://localhost:8080/index.html  
+  ```  
+### 4. Implementación de una Base de Datos SQL Server con persistencia de datos
 1. **Buscar la imagen en Docker Hub, aunque para este ejemplo vamos a acceder a su [web oficial](https://hub.docker.com/r/microsoft/mssql-server)**
    ```bash
    docker search microsoft/mssql-server
@@ -504,7 +550,7 @@ Vaultwarden es una implementación ligera y de código abierto del popular gesto
 
   **💡+info:** <https://learn.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-ver16&tabs=cli&pivots=cs1-powershell#pullandrun2022>  
 
-### 4. Crear entorno de desarrollo Node.js  
+### 5. Crear entorno de desarrollo Node.js  
 Crear la aplicación de Node.js directamente desde Docker sin tener Node.js instalado en tu máquina local.
 Para ello descargaremos la carpeta de 'Trincheras' y nos situaremos en el directorio de Nodejs.
 
@@ -533,7 +579,7 @@ Para ello descargaremos la carpeta de 'Trincheras' y nos situaremos en el direct
 7. **(Opcional) Cambiamos dockerfile**
 Podemos adaptar la imagen de nodejs cambiando en el dockerfile el comando **FROM**.
 
-### 5. Portainer: UI para administrar Docker en entornos sin Docker Desktop  
+### 6. Portainer: UI para administrar Docker en entornos sin Docker Desktop  
 Portainer es una herramienta de administración de contenedores que proporciona una interfaz gráfica de usuario (GUI) simple e intuitiva para gestionar entornos Docker. Con Portainer, puedes gestionar imágenes, contenedores, redes, volúmenes y más, sin necesidad de ejecutar comandos de terminal. Es ideal para principiantes que desean administrar Docker de manera visual y también para administradores que buscan simplificar tareas complejas.
 
 1. **Buscar la imagen en Docker Hub (también se puede buscar directamente en la web de Docker Hub)**
@@ -562,7 +608,7 @@ Portainer es una herramienta de administración de contenedores que proporciona 
 
 **💡+info:** <https://docs.portainer.io/start/install-ce/server/docker>  
 
-### 6. BONUS EXTRA: Servicio de libros Calibre  
+### 7. BONUS EXTRA: Servicio de libros Calibre  
 Calibre es una herramienta de gestión de libros electrónicos que permite organizar, convertir y visualizar tus e-books. Aquí, utilizaremos Docker para ejecutar el servidor de Calibre, lo que nos permitirá administrar nuestra colección de libros electrónicos desde cualquier dispositivo de la red.
 1. **Buscar la imagen en Docker Hub (también se puede buscar directamente en la web de Docker Hub)**  
   ```bash
