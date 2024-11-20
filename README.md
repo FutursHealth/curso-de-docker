@@ -549,7 +549,7 @@ En este ejemplo, verás como crear un contenedor Docker que ejecute un servicio 
      docker volume rm sqlserver_data
      ```      
 
-  **💡+info:** <https://learn.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-ver16&tabs=cli&pivots=cs1-powershell#pullandrun2022>  
+  **💡+info:** <[Inserción y ejecución de la imagen de contenedor de SQL Server para Linux](https://learn.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-ver16&tabs=cli&pivots=cs1-powershell#pullandrun2022)>  
 
 ### 5. Crear entorno de desarrollo Node.js  
 Crear la aplicación de Node.js directamente desde Docker sin tener Node.js instalado en tu máquina local.
